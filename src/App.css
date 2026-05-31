@@ -6,7 +6,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
 }
 
 body {
@@ -32,9 +31,39 @@ body {
   background: #c94a0f;
 }
 
-/* Smooth transitions */
-* {
-  transition: all 0.3s ease;
+/* --- Desktop Only Scrollbar --- */
+@media (min-width: 992px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #e65c1e;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c94a0f;
+  }
+}
+
+/* --- Mobile Only: Hide Scrollbar completely --- */
+@media (max-width: 991px) {
+  html, body {
+    scrollbar-width: none; /* Firefox के लिए */
+    -ms-overflow-style: none; /* IE और Edge के लिए */
+  }
+
+  html::-webkit-scrollbar, 
+  body::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari और Opera के लिए */
+    width: 0 !important;
+    height: 0 !important;
+  }
 }
 
 /* Bootstrap overrides */

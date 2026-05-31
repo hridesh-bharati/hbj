@@ -35,35 +35,88 @@ const Home = () => {
   return (
     <>
       {/* Hero Carousel */}
-      <section id="hero">
+      <section id="hero" style={{ overflow: 'hidden' }}>
         <div id="heroCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div className="carousel-indicators">
+
+          {/* Carousel Indicators */}
+          <div className="carousel-indicators mb-3 mb-md-4">
             {carouselSlides.map((_, idx) => (
-              <button key={idx} type="button" className={idx === activeIndex ? 'active' : ''} onClick={() => goToSlide(idx)}></button>
+              <button
+                key={idx}
+                type="button"
+                className={idx === activeIndex ? 'active' : ''}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Slide ${idx + 1}`}
+                style={{ width: '30px', height: '4px' }}
+              ></button>
             ))}
           </div>
+
+          {/* Carousel Inner */}
           <div className="carousel-inner">
             {carouselSlides.map((slide, idx) => (
-              <div key={idx} className={`carousel-item ${idx === activeIndex ? 'active' : ''}`} style={{ backgroundImage: `url('${slide.image}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '550px', position: 'relative' }}>
-                <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: 'linear-gradient(97deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%)', zIndex: 1 }}></div>
+              <div
+                key={idx}
+                className={`carousel-item ${idx === activeIndex ? 'active' : ''}`}
+                style={{
+                  backgroundImage: `url('${slide.image}')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center center',
+                  height: "clamp(60vh, 75vw, 90vh)",
+                  position: 'relative'
+                }}
+              >
+                {/* Rich Dark Overlay */}
+                <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: 'linear-gradient(100deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%)', zIndex: 1 }}></div>
+
+                {/* Content Container */}
                 <div className="container position-relative h-100 d-flex align-items-center" style={{ zIndex: 2 }}>
-                  <div className="row mt-4 mx-2">
-                    <div className="col-lg-7 col-md-9 text-white" data-aos="fade-right">
-                      <h1 className="display-4 fw-bold mb-3">{slide.title}</h1>
-                      <p className="lead fw-semibold mb-3">{slide.subtitle}</p>
-                      <p className="mb-4 fs-5">{slide.description}</p>
-                      <div className="d-flex gap-2">
-                        <button className="btn btn-warning rounded-pill px-3 py-2 fw-semibold">{slide.buttonText} →</button>
-                        <button className="btn btn-outline-light rounded-pill px-4 py-2">Get Fees</button>
+                  <div className="row w-100 mx-auto justify-content-start">
+
+                    {/* PC पर col-lg-9 किया ताकि टेक्स्ट और चौड़ाई में फैले और स्क्रीन भरी हुई लगे */}
+                    <div className="col-xl-8 col-lg-10 col-md-11 text-center text-md-start text-white px-2 px-md-4">
+
+                      {/* 1. Main Title - पीसी पर भारी लुक देने के लिए display-3 क्लास जोड़ी */}
+                      <h1 className="fw-extrabold mb-3 text-uppercase tracking-tight display-5 display-md-3" style={{ fontWeight: 900, lineHeight: '1.1', textShadow: '2px 2px 10px rgba(0,0,0,0.5)' }}>
+                        {slide.title}
+                      </h1>
+
+                      {/* 2. Subtitle - पीसी पर और बड़ा और हाइलाइटेड */}
+                      <p className="fw-bold text-warning mb-3 mb-md-4 tracking-wide text-uppercase" style={{ fontSize: 'calc(1rem + 0.5vw)', letterSpacing: '1px' }}>
+                        {slide.subtitle}
+                      </p>
+
+                      {/* 3. Description - पीसी पर विड्थ बढ़ाई (maxWidth: '680px') ताकि कंटेंट स्क्रीन को भरा-भरा दिखाए */}
+                      <p className="mb-4 mb-md-5 text-light mx-auto mx-md-0 lh-base fs-6 fs-md-5" style={{ maxWidth: '680px', fontWeight: '400', opacity: 0.85 }}>
+                        {slide.description}
+                      </p>
+
+                      {/* 4. Action Buttons Group - पीसी पर बड़े पैडिंग वाले प्रीमियम बटन्स */}
+                      <div className="d-flex gap-3 justify-content-center justify-content-md-start align-items-center mt-2">
+                        <button className="btn btn-warning rounded-pill px-4 py-2 py-md-3 fw-bold text-uppercase tracking-wider shadow" style={{ fontSize: 'calc(0.8rem + 0.2vw)' }}>
+                          {slide.buttonText} &rarr;
+                        </button>
+                        <button className="btn btn-outline-light rounded-pill px-4 py-2 py-md-3 tracking-wider fw-semibold" style={{ fontSize: 'calc(0.8rem + 0.2vw)' }}>
+                          Get Fees Structure
+                        </button>
                       </div>
+
                     </div>
+
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <button className="carousel-control-prev" onClick={goToPrev}><span className="carousel-control-prev-icon"></span></button>
-          <button className="carousel-control-next" onClick={goToNext}><span className="carousel-control-next-icon"></span></button>
+
+          {/* Navigation Controls (पीसी पर दिखेंगे और बड़े एरो के साथ रिफाइंड हैं) */}
+          <button className="carousel-control-prev d-none d-md-flex" onClick={goToPrev} aria-label="Previous" style={{ width: '5%' }}>
+            <span className="carousel-control-prev-icon p-3" style={{ backgroundSize: '100% 100%' }}></span>
+          </button>
+          <button className="carousel-control-next d-none d-md-flex" onClick={goToNext} aria-label="Next" style={{ width: '5%' }}>
+            <span className="carousel-control-next-icon p-3" style={{ backgroundSize: '100% 100%' }}></span>
+          </button>
+
         </div>
       </section>
 
@@ -296,11 +349,11 @@ const Home = () => {
       <div className="container my-5 px-3"><div className="text-center mb-5" data-aos="fade-down"><h2 className="fw-bold text-dark display-6" style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>Recognized by <span style={{ color: '#e65c1e' }}>India's top</span> industrial boards</h2></div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
           {[
-            { name: 'Mr. Bahauddin Ahmad', role: 'HONOURABLE CHAIRMAN CUM MANAGING DIRECTOR (CMD)', img: 'images/teams/t1.jpg' },
-            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/teams/t2.jpg' },
-            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/teams/t3.jpg' },
-            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/teams/t4.jpg' },
-            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/teams/t5.jpg' },
+            { name: 'Mr. Bahauddin Ahmad', role: 'HONOURABLE CHAIRMAN CUM MANAGING DIRECTOR (CMD)', img: 'images/std/team-1.jpg' },
+            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/std/team-1.jpg' },
+            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/std/team-1.jpg' },
+            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/std/team-1.jpg' },
+            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/std/team-1.jpg' },
           ].map((member, idx) => (
             <div className="col" key={idx} data-aos="fade-up" data-aos-delay={idx * 100}><div className="card h-100 border-0 shadow-sm" style={{ borderRadius: '0px', overflow: 'hidden' }}><img src={member.img} alt={member.name} className="card-img-top img-fluid" style={{ width: '100%', height: '240px', objectFit: 'cover' }} /><div className="card-body px-3 py-3 d-flex flex-column justify-content-between text-start" style={{ backgroundColor: '#fff5f2' }}><div><h5 className="card-title fw-bold text-dark mb-1" style={{ fontSize: '14px', fontWeight: '800' }}>{member.name}</h5><p className="card-text text-muted fw-semibold text-uppercase m-0" style={{ fontSize: '10px', letterSpacing: '0.3px', lineHeight: '1.4' }}>{member.role}</p></div><div className="mt-3"><div style={{ width: '25px', height: '2px', backgroundColor: '#e65c1e' }}></div></div></div></div></div>
           ))}

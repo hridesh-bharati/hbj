@@ -16,6 +16,7 @@
   height: 20px;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .announcement-text {
@@ -25,6 +26,7 @@
   animation: slideUpText 0.5s ease-in-out forwards;
   font-weight: bolder;
   text-align: center;
+  white-space: nowrap;
 }
 
 .red-square {
@@ -53,6 +55,33 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* --- MOBILE SPECIFIC MARQUEE EFFECT --- */
+@media (max-width: 767px) {
+  .announcement-container {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin: 0 -24px;
+  }
+
+  .announcement-text {
+    position: absolute;
+    width: max-content;
+    padding-left: 100%;
+    animation: mobileMarquee 25s linear infinite !important;
+    text-align: left;
+  }
+}
+
+@keyframes mobileMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
@@ -175,12 +204,181 @@
   }
 }
 
+/* ===== MOBILE MENU UI FIX ===== */
 @media (max-width: 991px) {
+  /* जब मेनू बंद हो तो उसे पूरी तरह छुपाएं */
   .navbar-collapse {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none !important;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  /* जब मेनू open (.show) हो तब का UI */
+  .navbar-collapse.show {
+    display: block !important;
+    background: #ffffff;
+    position: absolute;
+    top: 100%; /* ठीक नेवबार के नीचे खुलेगा */
+    left: 0;
+    width: 100%;
+    padding: 20px 25px !important;
+    margin-top: 0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #f3f4f6;
+    z-index: 999;
+  }
+
+  /* मोबाइल में लिंक्स को वर्टिकल (ऊपर से नीचे) और लेफ्ट अलाइन करने के लिए */
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important; /* लेफ्ट साइड में अलाइनमेंट */
+    gap: 15px !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 10px 0 !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid #f3f4f6; /* हर लिंक के नीचे हल्की लाइन */
+  }
+
+  /* मोबाइल में होवर करने पर नीचे की लाइन को छुपाना क्योंकि ये लिस्ट व्यू है */
+  .nav-link::after {
+    display: none !important;
+  }
+
+  /* मोबाइल व्यू में 'APPLY NOW' बटन को फुल विड्थ (Full Width) करना */
+  .navbar-collapse .apply-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 0 !important;
+  }
+}
+
+/* ==========================================================================
+   FLOATING ACTION BUTTONS STYLES - COMPLETELY FIXED FOR MOBILE
+   ========================================================================== */
+
+/* Common Base Styles for all Floating Buttons */
+.floating-btn {
+  width: 55px;
+  height: 55px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white !important;
+  font-size: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none !important;
+  position: fixed !important;
+  z-index: 99999 !important;
+  cursor: pointer;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  color: white !important;
+}
+
+.floating-btn:active {
+  transform: scale(0.95);
+}
+
+/* LEFT SIDE: WhatsApp Button - Fixed Position */
+.whatsapp-float {
+  bottom: 25px !important;
+  left: 25px !important;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+/* RIGHT SIDE BUTTONS CONTAINER - Fixed Position Container */
+.floating-actions-right {
+  position: fixed !important;
+  bottom: 25px !important;
+  right: 25px !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 99999 !important;
+}
+
+/* Right Side Button 1: Call Button */
+.call-float {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+}
+
+/* Right Side Button 2: Message Button */
+.message-float {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* ===== MOBILE RESPONSIVE FIXES - 100% VISIBLE ===== */
+@media (max-width: 768px) {
+  .floating-btn {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 22px !important;
+  }
+  
+  /* WhatsApp Button Mobile Position */
+  .whatsapp-float {
+    bottom: 20px !important;
+    left: 20px !important;
+  }
+  
+  /* Right Side Container Mobile Position */
+  .floating-actions-right {
+    bottom: 20px !important;
+    right: 20px !important;
+    gap: 12px !important;
+  }
+  
+  /* Make sure buttons are clickable on mobile */
+  .floating-btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .floating-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 20px !important;
+  }
+  
+  .whatsapp-float {
+    bottom: 15px !important;
+    left: 15px !important;
+  }
+  
+  .floating-actions-right {
+    bottom: 15px !important;
+    right: 15px !important;
+    gap: 10px !important;
+  }
+}
+
+/* Ensure buttons don't overlap with bottom content on very short screens */
+@media (max-height: 600px) {
+  .whatsapp-float {
+    bottom: 10px !important;
+  }
+  
+  .floating-actions-right {
+    bottom: 10px !important;
   }
 }
