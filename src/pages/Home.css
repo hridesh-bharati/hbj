@@ -1,0 +1,620 @@
+/* ==========================================================================
+   Shared & Global Components (DRY Core)
+   ========================================================================== */
+
+.placement-flow-wrapper,
+.franchise-section-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Typography Base Classes */
+.placement-section-tag,
+.placement-section-desc,
+.placement-sub-title,
+.partners-title,
+.partner-badge,
+.franchise-sub-title,
+.live-job-title,
+.job-meta-info,
+.job-salary-tag,
+.view-all-jobs-link {
+    font-size: 11px;
+}
+
+.placement-step-counter,
+.placement-step-subheading,
+.stat-label,
+.view-all-jobs-link .small {
+    font-size: 9px;
+}
+
+.feature-card-text,
+.btn-salary-opp,
+.btn-get-details {
+    font-size: 10px;
+}
+
+.placement-hero-title,
+.placement-main-title,
+.franchise-main-title {
+    font-weight: 900 !important;
+}
+
+.placement-step-heading,
+.feature-card-title,
+.live-dot-square {
+    font-size: 12px;
+}
+
+.placement-section-tag,
+.placement-sub-title,
+.partners-title,
+.franchise-sub-title {
+    letter-spacing: 1.5px;
+}
+
+/* Color Accent System */
+.placement-hero-title .highlight-accent,
+.placement-main-title .highlight-red,
+.franchise-main-title .highlight-red,
+.live-dot-square,
+.job-salary-tag,
+.view-all-jobs-link {
+    color: #dc3545;
+}
+
+/* Border Radius Reset Helpers */
+.partner-badge,
+.job-list-card,
+.job-char-avatar,
+.btn-salary-opp,
+.btn-get-details,
+.franchise-white-card,
+.btn-success-model-cta {
+    border-radius: 2px;
+}
+
+/* Common Transitions */
+.placement-icon-badge,
+.placement-step-heading,
+.placement-step-subheading,
+.job-list-card,
+.feature-dark-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* ==========================================================================
+   Placement Timeline Section
+   ========================================================================== */
+
+.placement-section-tag {
+    letter-spacing: 2.5px;
+    /* Keeps its unique wider track */
+}
+
+.placement-hero-title {
+    letter-spacing: -1px;
+}
+
+.placement-section-desc {
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Nodes & Badges */
+.placement-node-container,
+.placement-arrow-box {
+    height: 76px;
+}
+
+.placement-node-container {
+    position: relative;
+    width: 76px;
+}
+
+.placement-icon-badge {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #dc3545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(220, 53, 69, 0.25);
+}
+
+.placement-icon-badge i {
+    font-size: 1.5rem !important;
+}
+
+.placement-step-counter {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #0b1320;
+    color: #ffffff;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    z-index: 3;
+}
+
+/* Step Text */
+.placement-step-heading {
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: 0.3px;
+}
+
+.placement-step-subheading {
+    font-weight: 700;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Interactive Hovers */
+.placement-column-item:hover .placement-icon-badge {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(220, 53, 69, 0.4);
+}
+
+.placement-column-item:hover .placement-step-subheading {
+    color: #4b5563;
+}
+
+/* Layout Management & Arrows */
+.placement-timeline-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .placement-timeline-row {
+        flex-wrap: nowrap !important;
+    }
+
+    .placement-column-item {
+        flex: 0 0 14%;
+        max-width: 14%;
+    }
+
+    .placement-arrow-box {
+        flex: 0 0 7.5%;
+        max-width: 7.5%;
+    }
+}
+
+.placement-arrow-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placement-arrow-graphics {
+    width: 100%;
+    height: 40px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' fill='none'%3E%3Cpath d='M5 20 C30 -2, 70 -2, 92 18' stroke='%23fca5a5' stroke-width='2.5' stroke-dasharray='4 4' stroke-linecap='round'/%3E%3Cpath d='M83 17 L93 20 L90 10' stroke='%23fca5a5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+    opacity: 0.9;
+}
+
+
+/* ==========================================================================
+   Left Sidebar & Partner Badges
+   ========================================================================== */
+
+.placement-main-title {
+    color: #111827 !important;
+    letter-spacing: -0.5px;
+}
+
+.placement-desc {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.partner-badge {
+    font-weight: 600;
+    color: #374151;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 6px 12px;
+}
+
+
+/* ==========================================================================
+   Right Sidebar Live Job Data Stack
+   ========================================================================== */
+
+.live-job-title {
+    letter-spacing: 1px;
+}
+
+.job-list-card {
+    border: none;
+    background-color: #ffffff;
+    border-left: 3px solid transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.job-list-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Dynamic Hover Accents */
+.hse-officer-card:hover {
+    border-left-color: #0f172a;
+}
+
+.safety-super-card:hover {
+    border-left-color: #dc3545;
+}
+
+.fire-safety-card:hover {
+    border-left-color: #2563eb;
+}
+
+.hse-manager-card:hover {
+    border-left-color: #10b981;
+}
+
+/* Avatars Infrastructure */
+.job-char-avatar {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.avatar-dark {
+    background-color: #0f172a;
+}
+
+.avatar-red {
+    background-color: #dc3545;
+}
+
+.avatar-blue {
+    background-color: #2563eb;
+}
+
+.avatar-green {
+    background-color: #10b981;
+}
+
+/* Text & Internal Elements */
+.job-role-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: 0.3px;
+}
+
+.job-meta-info {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.job-salary-tag {
+    font-weight: 700;
+}
+
+/* Action Buttons Grid */
+.btn-salary-opp,
+.btn-get-details {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.btn-salary-opp {
+    background: transparent;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+    padding: 8px 14px;
+}
+
+.btn-salary-opp:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.btn-get-details {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    padding: 9px 16px;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15);
+}
+
+.btn-get-details:hover {
+    background-color: #bd2130;
+}
+
+.view-all-jobs-link {
+    letter-spacing: 0.3px;
+}
+
+.view-all-jobs-link:hover {
+    color: #0f172a;
+}
+
+@media (max-width: 576px) {
+
+    .action-btns-wrapper,
+    .btn-salary-opp,
+    .btn-get-details {
+        width: 100%;
+    }
+
+    .btn-salary-opp,
+    .btn-get-details {
+        text-align: center;
+    }
+}
+
+
+/* ==========================================================================
+   Franchise Section
+   ========================================================================== */
+
+.franchise-section-wrapper {
+    background-color: #030712;
+}
+
+.franchise-main-title {
+    letter-spacing: -0.5px;
+    font-size: 32px;
+}
+
+/* Stats Element Rows */
+.stat-item-row {
+    border-left: 2px solid #1f2937;
+    padding-left: 12px;
+}
+
+.stat-label {
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 2px 0 0 0;
+    letter-spacing: 0.3px;
+}
+
+/* Dark Core Features Card */
+.feature-dark-card {
+    background-color: #0f172a;
+    border: none;
+    border-top: 2px solid transparent;
+    height: 100%;
+}
+
+.feature-dark-card:hover {
+    transform: translateY(-4px);
+    background-color: #1e293b;
+    border-top-color: #dc3545;
+}
+
+.feature-card-title {
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.feature-card-text {
+    color: #9ca3af;
+    line-height: 1.5;
+    margin: 4px 0 0 0;
+}
+
+/* Right Side Lead Conversion Form */
+.franchise-white-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.border-top-danger-heavy {
+    border-top: 4px solid #dc3545 !important;
+}
+
+.form-card-title {
+    font-size: 20px;
+    letter-spacing: -0.5px;
+}
+
+.checklist-item .checklist-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.btn-success-model-cta {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-success-model-cta:hover {
+    background-color: #bd2130;
+    transform: scale(1.01);
+}
+/* ....... Contact .......  */
+/* --- Core Section Typography --- */
+.contact-section-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-sub-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.contact-main-title {
+  font-weight: 900 !important;
+  letter-spacing: -0.5px;
+}
+
+.contact-main-title .highlight-red {
+  color: #dc3545;
+}
+
+.contact-desc {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* --- Left Column Form Card --- */
+.contact-form-card {
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border-radius: 0px;
+}
+
+.contact-form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07) !important;
+}
+
+.form-inner-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.3px;
+}
+
+/* Custom Minimal Input Elements */
+.form-group-custom {
+  text-align: left;
+}
+
+.form-label-custom {
+  font-size: 9px;
+  font-weight: 700;
+  color: #6b7280;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control-custom {
+  width: 100%;
+  background-color: #f9fafb;
+  border: 1px solid #f3f4f6;
+  border-left: 3px solid transparent; /* क्लिक फोकस पर लाइन के लिए स्पेस रिज़र्व्ड */
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* इनपुट फ़ोकस इफ़ेक्ट - केवल लेफ्ट में तीखी लाल लाइन आएगी */
+.form-control-custom:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  border-left-color: #dc3545;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.text-area-custom {
+  resize: none;
+}
+
+/* Action Submit Button */
+.btn-contact-submit {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-contact-submit:hover {
+  background-color: #bd2130;
+}
+
+/* --- Right Column Quick Meta Info & Map --- */
+.info-quick-card {
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  border-radius: 0px;
+  transition: transform 0.4s ease;
+}
+.info-quick-card:hover {
+  transform: translateY(-2px);
+}
+
+.info-icon-box {
+  width: 44px;
+  height: 44px;
+  background-color: #fff5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+  margin: 2px 0 0 0;
+}
+
+/* Google Map Frame Box Wrapper */
+.contact-map-wrapper {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  background: #e5e7eb;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.contact-map-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07) !important;
+}
+
+.map-iframe-element {
+  border-radius: 0px;
+} 
+

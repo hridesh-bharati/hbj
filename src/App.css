@@ -1,43 +1,60 @@
-:root {
-  --color-orange-500: #e65c1e;
-  --color-orange-600: #d44a0a;
-  --color-green-800: #2c5f2d;
-  --color-green-900: #1e3a1f;
-  --color-blue-600: #1e4a6e;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  overflow-x: hidden !important;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
-.navbar-nav .nav-link {
-  transition: all 0.2s ease;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.navbar-nav .nav-link:hover {
-  color: var(--color-orange-500) !important;
-  background-color: #fff5f0;
-  border-radius: 8px;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.btn-warning {
-  background-color: var(--color-orange-500);
-  border-color: var(--color-orange-500);
-  color: white;
+::-webkit-scrollbar-thumb {
+  background: #e65c1e;
+  border-radius: 4px;
 }
 
-.btn-warning:hover {
-  background-color: var(--color-orange-600);
-  border-color: var(--color-orange-600);
-  color: white;
+::-webkit-scrollbar-thumb:hover {
+  background: #c94a0f;
 }
 
-.transition-hover {
+/* Smooth transitions */
+* {
   transition: all 0.3s ease;
 }
 
-.transition-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+/* Bootstrap overrides */
+.btn:focus,
+.btn:active {
+  box-shadow: none !important;
+}
+
+/* AOS Custom */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 70px;
+  }
 }
