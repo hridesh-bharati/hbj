@@ -168,7 +168,7 @@ const Home = () => {
                 zIndex: 1
               }}></div>
               <div className="container position-relative h-100 d-flex align-items-center" style={{ zIndex: 2 }}>
-                <div className="row">
+                <div className="row m-5">
                   <div className="col-lg-7 col-md-9 text-white" data-aos="fade-right" data-aos-duration="1000">
                     <h1 className="display-4 fw-bold mb-3">{slide.title}</h1>
                     <p className="lead fw-semibold mb-3">{slide.subtitle}</p>
@@ -242,8 +242,8 @@ const Home = () => {
 
           <div className="w-100 text-center py-5 px-3 mb-5 position-relative" style={{
             backgroundColor: '#fff1f2',
-            borderTop: '1px dashed #dc3545',
-            borderBottom: '1px dashed #dc3545'
+            border: '1px dashed #dc3545',
+            borderTop: '5px solid #dc3545',
           }}>
             <div className="container" style={{ maxWidth: '900px' }} data-aos="zoom-in">
               <h2 className="fw-bold text-uppercase mb-3" style={{ color: '#dc3545', fontSize: '24px', letterSpacing: '0.5px' }}>
@@ -273,49 +273,325 @@ const Home = () => {
       </div>
 
       {/* OUR TRACK RECORD Section with AOS */}
-      <section className="py-5 bg-white">
-        <div className="container">
-          <div className="text-center mb-3" data-aos="fade-down">
-            <small className="fw-bold text-uppercase" style={{ color: '#dc3545', fontSize: '12px' }}>OUR TRACK RECORD</small>
-          </div>
-          <h2 className="text-center fw-bold mb-4" style={{ color: '#1d3557' }} data-aos="fade-up">30 Years of Legacy in Numbers</h2>
-          <div className="row g-4 mt-3">
-            {stats.map((stat, idx) => (
-              <div className="col-md-4 col-lg-2 col-6" key={idx} data-aos="flip-up" data-aos-delay={idx * 100}>
-                <div className="text-center p-3 rounded-3 bg-light h-100 stat-card">
-                  <h2 className="display-6 fw-bold" style={{ color: '#e65c1e' }}>{stat.number}</h2>
-                  <p className="fw-semibold mb-1 small">{stat.label}</p>
-                  <small className="text-muted d-block">{stat.sub}</small>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="container-fluid my-5 px-3">
 
-      {/* HONOURS & RECOGNITION Section with AOS */}
-      <section className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="container">
-          <div className="text-center mb-3" data-aos="fade-down">
-            <small className="fw-bold text-uppercase" style={{ color: '#dc3545', fontSize: '12px' }}>HONOURS & RECOGNITION</small>
+        {/* Header Title Section */}
+        <div className="text-center mb-5">
+          <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>
+            OUR TRACK RECORD
+          </h6>
+          <h2 className="fw-bold text-dark display-6" style={{ fontWeight: '850', letterSpacing: '-0.5px' }}>
+            30 Years of <span style={{ color: '#dc3545' }}>Legacy</span> in Numbers
+          </h2>
+        </div>
+
+        {/* CSS Styles Block (इफेक्ट्स और होवर एनिमेशन के लिए) */}
+        <style jsx>{`
+    .stats-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 0px; /* शार्प एजेस */
+      background: #ffffff;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    
+    /* कार्ड पर होवर करने पर थोड़ा ऊपर उठने का इफेक्ट */
+    .stats-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+    }
+
+    /* इमेज कंटेनर */
+    .img-zoom-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .img-zoom-container img {
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* फोटो पर होवर करने पर थोड़ा सा ज़ूम होने का इफेक्ट */
+    .stats-card:hover .img-zoom-container img {
+      transform: scale(1.06);
+    }
+
+    .letter-spacing-custom {
+      letter-spacing: 0.3px;
+    }
+  `}</style>
+
+        {/* Main Grid Layout structure */}
+        <div className="row g-4 justify-content-center">
+
+          {/* ROW 1: 30+ Years & 35,000+ Employees Placed */}
+          <div className="col-12 col-lg-7">
+            <div className="stats-card h-100 row g-0 align-items-center">
+              <div className="col-6 p-4 text-center">
+                <h2 className="fw-black text-dark display-5 m-0" style={{ fontWeight: '900' }}>30+</h2>
+                <p className="fw-bold text-dark text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>YEARS OF EXCELLENCE</p>
+                <small className="text-muted d-block mt-1" style={{ fontSize: '10px' }}>Industry-trusted since 1996</small>
+              </div>
+              <div className="col-6 img-zoom-container h-100" style={{ Height: '160px' }}>
+                <img src="images/lagency/image1.avif" alt="30 Years Medal" style={{ height: "180px" }} />
+              </div>
+            </div>
           </div>
-          <h2 className="text-center fw-bold mb-4" style={{ color: '#1d3557' }} data-aos="fade-up">Recognised by the best, awarded for excellence</h2>
-          <div className="row g-4">
-            {honors.map((honor, idx) => (
-              <div className="col-md-6" key={idx} data-aos="fade-right" data-aos-delay={idx * 100}>
-                <div className="card border-0 shadow-sm h-100 recognition-card p-3">
-                  <div className="card-body">
-                    <i className="bi bi-trophy-fill fs-1 text-warning mb-3"></i>
-                    <h5 className="fw-bold">{honor.title}</h5>
-                    <p className="text-danger fw-semibold mb-1">{honor.year}</p>
-                    <small className="text-muted">{honor.sub}</small>
-                  </div>
+
+          <div className="col-12 col-lg-5">
+            <div className="stats-card h-100 row g-0 align-items-center">
+              <div className="col-5 img-zoom-container h-100" style={{ minHeight: '160px' }}>
+                <img src="images/lagency/image2.avif" alt="Employees Placed" style={{ height: "180px" }} />
+              </div>
+              <div className="col-7 p-4 text-start ps-4">
+                <h2 className="fw-black text-dark display-5 m-0" style={{ fontWeight: '900' }}>35,000+</h2>
+                <p className="fw-bold text-dark text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>EMPLOYEES PLACED GLOBALLY</p>
+                <small className="text-muted d-block mt-1" style={{ fontSize: '10px' }}>Aramco, ADNOC & more</small>
+              </div>
+            </div>
+          </div>
+
+          {/* ROW 2: 3,500+ Equipment, Center Truck Image, & 10 Acres Ground */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <div className="stats-card h-100 row g-0 align-items-center">
+              <div className="col-6 p-4 text-center">
+                <h2 className="fw-black text-dark display-5 m-0" style={{ fontWeight: '900' }}>3,500+</h2>
+                <p className="fw-bold text-dark text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>LATEST EQUIPMENTS</p>
+                <small className="text-muted d-block mt-1" style={{ fontSize: '10px' }}>& 3,000+ Modern Tools</small>
+              </div>
+              <div className="col-6 img-zoom-container h-100" style={{ minHeight: '160px' }}>
+                <img src="images/lagency/image3.avif" alt="Equipments" style={{ height: "180px" }} />
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-4">
+            {/* सेंटर में बड़ी इमेज जो सिर्फ होवर पर ज़ूम होगी */}
+            <div className="stats-card h-100 img-zoom-container" style={{ minHeight: '160px' }}>
+              <img src="images/lagency/image4.avif" alt="Fire Truck Training" style={{ height: "180px" }} />
+            </div>
+          </div>
+
+          <div className="col-12 col-lg-4">
+            <div className="stats-card h-100 p-4 text-center d-flex flex-column justify-content-center">
+              <h2 className="fw-black text-dark display-5 m-0" style={{ fontWeight: '900' }}>10 Acres</h2>
+              <p className="fw-bold text-dark text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>PRACTICAL GROUND</p>
+              <small className="text-muted d-block mt-1 mx-auto" style={{ fontSize: '10px', maxWidth: '280px' }}>
+                India's largest practical training ground of Fire & Safety for students
+              </small>
+            </div>
+          </div>
+
+          {/* ROW 3: Online Batches (Blue), Students Trained (Red), & Hostel (White) */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <div className="stats-card h-100 p-4 text-center d-flex flex-column justify-content-center" style={{ backgroundColor: '#edf7fd', borderColor: '#e0f2fe' }}>
+              <h2 className="fw-black m-0" style={{ fontWeight: '900', color: '#0369a1', fontSize: '38px' }}>1,700</h2>
+              <p className="fw-bold text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px', color: '#0369a1' }}>ONLINE & OFFLINE BATCHES</p>
+              <small className="d-block mt-1" style={{ fontSize: '10px', color: '#0284c7' }}>Completed successfully</small>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-4">
+            <div className="stats-card h-100 p-4 text-center d-flex flex-column justify-content-center" style={{ backgroundColor: '#dc3545', borderColor: '#dc3545' }}>
+              <h2 className="fw-black text-white m-0" style={{ fontWeight: '900', fontSize: '38px' }}>35,000+</h2>
+              <p className="fw-bold text-white text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>STUDENTS TRAINED</p>
+              <small className="text-white-50 d-block mt-1" style={{ fontSize: '10px' }}>Across all programmes</small>
+            </div>
+          </div>
+
+          <div className="col-12 col-lg-4">
+            <div className="stats-card h-100 p-4 text-center d-flex flex-column justify-content-center">
+              <h2 className="fw-black text-dark m-0" style={{ fontWeight: '900', fontSize: '38px' }}>200-Cap</h2>
+              <p className="fw-bold text-dark text-uppercase m-0 mt-1" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>STAR LEVEL HOSTEL</p>
+              <small className="text-muted d-block mt-1" style={{ fontSize: '10px' }}>Residential on-campus facility</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* HONOURS & RECOGNITION Section with AOS */}
+      <div className="container-fluid my-5 px-3">
+
+        {/* Header Section */}
+        <div className="text-center mb-5">
+          <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>
+            HONOURS & RECOGNITION
+          </h6>
+          <h2 className="fw-bold text-dark display-6" style={{ fontWeight: '850', letterSpacing: '-0.5px' }}>
+            Recognised by the best, <span style={{ color: '#dc3545' }}>awarded for excellence</span>
+          </h2>
+        </div>
+
+        {/* Custom CSS for Image Zoom & Card Shadow on Hover */}
+        <style jsx>{`
+    .award-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      background: #ffffff;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+    
+    /* 1. कार्ड होवर इफेक्ट (शैडो + थोड़ा ऊपर उठना) */
+    .award-card:hover {
+      transform: translateY(-6px);
+      border-color: #dc3545 !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+      z-index: 2;
+    }
+
+    /* इमेज कंटेनर */
+    .img-container {
+      overflow: hidden;
+      position: relative;
+      height: 170px;
+    }
+
+    .img-container img {
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 2. फोटो होवर इफेक्ट (ज़ूम इन) */
+    .award-card:hover .img-container img {
+      transform: scale(1.06);
+    }
+
+    .award-title-link {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1f2937;
+      line-height: 1.4;
+      text-decoration: none;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 60px;
+      transition: color 0.3s ease;
+    }
+
+    .award-card:hover .award-title-link {
+      color: #dc3545;
+    }
+
+    .red-left-border {
+      border-left: 2px solid #dc3545;
+      padding-left: 12px;
+    }
+  `}</style>
+
+        {/* Row Layout: 4 Columns on Desktop */}
+        <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
+
+          {/* Card 1 */}
+          <div className="col">
+            <div className="award-card h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <div className="red-left-border mb-2">
+                  <a href="#link" className="award-title-link">
+                    ICONIC ACADEMY AWARDED BY GOVERNOR OF MAHARASHTRA, TIMES APPLAUD TRENDSETTER 2024
+                  </a>
+                </div>
+                <small className="text-muted fw-bold tracking-wider d-block mb-3" style={{ fontSize: '9px' }}>
+                  OFFICIAL RECOGNITION
+                </small>
+
+                {/* Zoom-enabled Image Container */}
+                <div className="img-container rounded-1 bg-light">
+                  <img src="images/recognised/image1.avif" alt="Governor Award" />
                 </div>
               </div>
-            ))}
+
+              <div className="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                <small className="fw-bold text-muted" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>VERIFIED EXCELLENCE</small>
+                <span className="text-muted" style={{ fontSize: '10px', letterSpacing: '1px' }}>■■■</span>
+              </div>
+            </div>
           </div>
+
+          {/* Card 2 */}
+          <div className="col">
+            <div className="award-card h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <div className="red-left-border mb-2">
+                  <a href="#link" className="award-title-link">
+                    BEST BRAND IN OH&S AND FIRE SAFETY AWARDED BY TIMES GROUP, TIMES BRAND ICON 2021
+                  </a>
+                </div>
+                <small className="text-muted fw-bold tracking-wider d-block mb-3" style={{ fontSize: '9px' }}>
+                  OFFICIAL RECOGNITION
+                </small>
+
+                <div className="img-container rounded-1 bg-light">
+                  <img src="images/recognised/image2.avif" alt="Times Brand Icon" />
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                <small className="fw-bold text-muted" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>VERIFIED EXCELLENCE</small>
+                <span className="text-muted" style={{ fontSize: '10px', letterSpacing: '1px' }}>■■■</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="col">
+            <div className="award-card h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <div className="red-left-border mb-2">
+                  <a href="#link" className="award-title-link">
+                    AWARDED BY CHIEF MINISTER OF CHHATTISGARH FOR ACADEMIC EXCELLENCE AWARD
+                  </a>
+                </div>
+                <small className="text-muted fw-bold tracking-wider d-block mb-3" style={{ fontSize: '9px' }}>
+                  OFFICIAL RECOGNITION
+                </small>
+
+                <div className="img-container rounded-1 bg-light">
+                  <img src="images/recognised/image3.avif" alt="CM Excellence Award" />
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                <small className="fw-bold text-muted" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>VERIFIED EXCELLENCE</small>
+                <span className="text-muted" style={{ fontSize: '10px', letterSpacing: '1px' }}>■■■</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="col">
+            <div className="award-card h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <div className="red-left-border mb-2">
+                  <a href="#link" className="award-title-link">
+                    SHREE MAHATMA GANDHI RASHTRIYA ABHIMAN PURASKAR 2023 FOR TECHNICAL TRAINING CONTRIBUTION
+                  </a>
+                </div>
+                <small className="text-muted fw-bold tracking-wider d-block mb-3" style={{ fontSize: '9px' }}>
+                  OFFICIAL RECOGNITION
+                </small>
+
+                <div className="img-container rounded-1 bg-light">
+                  <img src="images/recognised/image4.avif" alt="Mahatma Gandhi Award" />
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                <small className="fw-bold text-muted" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>VERIFIED EXCELLENCE</small>
+                <span className="text-muted" style={{ fontSize: '10px', letterSpacing: '1px' }}>■■■</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
 
       {/* ADDITIONAL CERTIFICATIONS & ASSOCIATES with AOS */}
       <section className="py-5 bg-white">
@@ -333,66 +609,569 @@ const Home = () => {
         </div>
       </section>
 
-      {/* AFFILIATIONS & COLLABORATIONS Section with AOS */}
-      <section className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="container">
-          <div className="text-center mb-3" data-aos="fade-down">
-            <small className="fw-bold text-uppercase" style={{ color: '#dc3545', fontSize: '12px' }}>AFFILIATIONS & COLLABORATIONS</small>
-          </div>
-          <h2 className="text-center fw-bold mb-5" style={{ color: '#1d3557' }} data-aos="fade-up">Trusted by Governing Bodies</h2>
+      {/* Trusted AFFILIATIONS & COLLABORATIONS Section with AOS */}
+      <div className="container-fluid my-5 px-3">
 
-          <div className="row g-4">
-            {affiliations.map((aff, idx) => (
-              <div className="col-md-6 col-lg-3" key={idx} data-aos="flip-up" data-aos-delay={idx * 100}>
-                <div className="card border-0 shadow-sm h-100 text-center p-3 affiliation-card">
-                  <div className="card-body">
-                    <div className="bg-light p-3 rounded mb-3">
-                      <strong style={{ color: aff.color, fontSize: '18px' }}>{aff.logo}</strong>
-                    </div>
-                    <h6 className="fw-bold">{aff.name}</h6>
-                    <p className="small text-muted mt-2">{aff.description.substring(0, 100)}...</p>
-                    <button className="btn btn-sm btn-outline-danger rounded-pill mt-2">LEARN MORE →</button>
+        {/* Section Header */}
+        <div className="text-center mb-5">
+          <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>
+            AFFILIATIONS & COLLABORATIONS
+          </h6>
+          <h2 className="fw-bold text-dark display-6" style={{ fontWeight: '850', letterSpacing: '-0.5px' }}>
+            Trusted by <span style={{ color: '#dc3545' }}>Governing Bodies</span>
+          </h2>
+        </div>
+
+        {/* Custom CSS for Alternating Layout, Image Zoom & Button Effects */}
+        <style jsx>{`
+    .collab-wrapper {
+      background: #ffffff;
+      border: 1px solid #f3f4f6;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    /* पूरे रो/ब्लॉक पर होवर करने पर थोड़ा सा ऊपर उठना और शैडो आना */
+    .collab-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    .collab-img-container {
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 15px; /* स्क्रीनशॉट की तरह इमेज के चारों तरफ का व्हाइट गैप */
+    }
+
+    .collab-img-container img {
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* इमेज ज़ूम इफेक्ट */
+    .collab-wrapper:hover .collab-img-container img {
+      transform: scale(1.04);
+    }
+
+    /* डार्क प्रीमियम बटन स्टाइल */
+    .btn-dark-custom {
+      background-color: #0b1320;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 12px 24px;
+      border-radius: 0px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-dark-custom:hover {
+      background-color: #dc3545;
+      color: #ffffff;
+    }
+  `}</style>
+
+        {/* Blocks Container with Vertical Spacing */}
+        <div className="d-flex flex-column gap-5">
+
+          {/* BLOCK 1: Rungta University (Photo Left, Text Right) */}
+          <div className="row align-items-center g-4 p-3 collab-wrapper">
+            <div className="col-12 col-md-6">
+              <div className="collab-img-container">
+                <img src="images/trusted/image1.avif" alt="Rungta International Skill University" />
+              </div>
+            </div>
+            <div className="col-12 col-md-6 ps-md-4 text-start">
+              <small className="text-danger fw-bold tracking-wider d-block mb-2" style={{ fontSize: '10px' }}>
+                VERIFIED ACADEMIC PARTNER
+              </small>
+              <h3 className="fw-black text-dark mb-3" style={{ fontSize: '22px', fontWeight: '900', letterSpacing: '-0.3px' }}>
+                RUNGTA INTERNATIONAL SKILL UNIVERSITY
+              </h3>
+              <p className="text-secondary lh-base mb-3" style={{ fontSize: '13px', color: '#4b5563' }}>
+                JIFSA is proud to be associated with Rungta International Skill University, ensuring our students receive the highest quality training and globally recognised certifications in Fire and Industrial Safety. This collaboration strengthens our commitment to industry standards and global safety protocols.
+              </p>
+              <div className="d-flex align-items-center gap-2 text-muted mb-4" style={{ fontSize: '11px', fontWeight: '600' }}>
+                <i className="bi bi-check-circle text-danger"></i> ACCREDITED ACADEMIC PARTNER
+              </div>
+              <a href="#learn-more" className="btn-dark-custom">
+                LEARN MORE <i className="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* BLOCK 2: TÜV SÜD (Text Left, Photo Right) */}
+          <div className="row align-items-center g-4 p-3 collab-wrapper flex-md-row-reverse">
+            <div className="col-12 col-md-6">
+              <div className="collab-img-container">
+                <img src="images/trusted/image2.avif" alt="TÜV SÜD Collaboration" />
+              </div>
+            </div>
+            <div className="col-12 col-md-6 pe-md-4 text-start">
+              <small className="text-danger fw-bold tracking-wider d-block mb-2" style={{ fontSize: '10px' }}>
+                VERIFIED ACADEMIC PARTNER
+              </small>
+              <h3 className="fw-black text-dark mb-3" style={{ fontSize: '22px', fontWeight: '900', letterSpacing: '-0.3px' }}>
+                TÜV SÜD COLLABORATION
+              </h3>
+              <p className="text-secondary lh-base mb-3" style={{ fontSize: '13px', color: '#4b5563' }}>
+                JIFSA is proud to be associated with TÜV SÜD Collaboration, ensuring our students receive the highest quality training and globally recognised certifications in Fire and Industrial Safety. This collaboration strengthens our commitment to industry standards and global safety protocols.
+              </p>
+              <div className="d-flex align-items-center gap-2 text-muted mb-4" style={{ fontSize: '11px', fontWeight: '600' }}>
+                <i className="bi bi-check-circle text-danger"></i> ACCREDITED ACADEMIC PARTNER
+              </div>
+              <a href="#learn-more" className="btn-dark-custom">
+                LEARN MORE <i className="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* BLOCK 3: Indian Iron & Steel Sector Skill Council (Photo Left, Text Right) */}
+          <div className="row align-items-center g-4 p-3 collab-wrapper">
+            <div className="col-12 col-md-6">
+              <div className="collab-img-container">
+                <img src="images/trusted/image3.webp" alt="Indian Iron & Steel Sector Skill Council" />
+              </div>
+            </div>
+            <div className="col-12 col-md-6 ps-md-4 text-start">
+              <small className="text-danger fw-bold tracking-wider d-block mb-2" style={{ fontSize: '10px' }}>
+                VERIFIED ACADEMIC PARTNER
+              </small>
+              <h3 className="fw-black text-dark mb-3" style={{ fontSize: '22px', fontWeight: '900', letterSpacing: '-0.3px' }}>
+                INDIAN IRON & STEEL SECTOR SKILL COUNCIL
+              </h3>
+              <p className="text-secondary lh-base mb-3" style={{ fontSize: '13px', color: '#4b5563' }}>
+                JIFSA is proud to be associated with Indian Iron & Steel Sector Skill Council, ensuring our students receive the highest quality training and globally recognised certifications in Fire and Industrial Safety. This collaboration strengthens our commitment to industry standards and global safety protocols.
+              </p>
+              <div className="d-flex align-items-center gap-2 text-muted mb-4" style={{ fontSize: '11px', fontWeight: '600' }}>
+                <i className="bi bi-check-circle text-danger"></i> ACCREDITED ACADEMIC PARTNER
+              </div>
+              <a href="#learn-more" className="btn-dark-custom">
+                LEARN MORE <i className="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* BLOCK 4: DGMS (Text Left, Photo Right) */}
+          <div className="row align-items-center g-4 p-3 collab-wrapper flex-md-row-reverse">
+            <div className="col-12 col-md-6">
+              <div className="collab-img-container">
+                <img src="images/trusted/image4.avif" alt="DGMS Directorate General of Mines Safety" />
+              </div>
+            </div>
+            <div className="col-12 col-md-6 pe-md-4 text-start">
+              <small className="text-danger fw-bold tracking-wider d-block mb-2" style={{ fontSize: '10px' }}>
+                VERIFIED ACADEMIC PARTNER
+              </small>
+              <h3 className="fw-black text-dark mb-3" style={{ fontSize: '22px', fontWeight: '900', letterSpacing: '-0.3px' }}>
+                DGMS (DIRECTORATE GENERAL OF MINES SAFETY)
+              </h3>
+              <p className="text-secondary lh-base mb-3" style={{ fontSize: '13px', color: '#4b5563' }}>
+                JIFSA is proud to be associated with DGMS (Directorate General of Mines Safety), ensuring our students receive the highest quality training and globally recognised certifications in Fire and Industrial Safety. This collaboration strengthens our commitment to industry standards and global safety protocols.
+              </p>
+              <div className="d-flex align-items-center gap-2 text-muted mb-4" style={{ fontSize: '11px', fontWeight: '600' }}>
+                <i className="bi bi-check-circle text-danger"></i> ACCREDITED ACADEMIC PARTNER
+              </div>
+              <a href="#learn-more" className="btn-dark-custom">
+                LEARN MORE <i className="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Course JIFSA HIGHLIGHTS Section with AOS */}
+      <div className="container-fluid my-5 px-5">
+
+        {/* Header Section */}
+        <div className="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+          <div>
+            <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>
+              — INVEST IN YOUR FUTURE
+            </h6>
+            <h2 className="fw-bolder text-dark display-5 m-0" style={{ fontWeight: '1200', letterSpacing: '-1px', lineHeight: '1.1' }}>
+              CHOOSE YOUR COURSE<br />BY <span style={{ color: '#dc3545' }}>BY BUDGET</span>
+            </h2>
+          </div>
+          <div>
+            <a href="#all-courses" className="text-uppercase fw-bold text-dark text-decoration-none d-flex align-items-center gap-2 hover-red" style={{ fontSize: '11px', letterSpacing: '1px' }}>
+              BROWSE ALL COURSES <i className="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        {/* Custom CSS (No Default Border, Only Top Border on Hover) */}
+        <style jsx>{`
+    .budget-card {
+      border: none; /* डिफ़ॉल्ट चारों तरफ की बॉर्डर हटा दी */
+      border-top: 3px solid transparent; /* केवल टॉप बॉर्डर होवर एनिमेशन के लिए रखी */
+      border-radius: 0px; 
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* डिफ़ॉल्ट रूप से बहुत हल्की शैडो ताकि कार्ड बिना बॉर्डर के दिखे */
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-top-color 0.3s ease;
+      position: relative;
+    }
+    
+    /* कार्ड होवर इफ़ेक्ट: ऊपर उठना + गहरी शैडो + टॉप बॉर्डर आना */
+    .budget-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+      border-top-color: #dc3545; /* होवर करने पर लाल/ऑरेंज टॉप बॉर्डर आएगी */
+    }
+
+
+    .icon-box {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9fafb;
+      border: 1px solid #f3f4f6;
+    }
+
+    .badge-custom {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 0px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .hover-red {
+      transition: color 0.2s ease;
+    }
+    .hover-red:hover {
+      color: #dc3545 !important;
+    }
+
+    .catalog-btn {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #dc3545;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .budget-card:hover .catalog-btn {
+      gap: 10px; 
+    }
+  `}</style>
+
+        {/* Cards Grid Layout */}
+        <div className="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
+
+          {/* Card 1: Under 10K */}
+          <div className="col">
+            <div className="budget-card border h-100 p-4 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex justify-content-between align-items-start mb-4">
+                  <div className="icon-box">
+                    <i className="bi bi-lightning-charge text-danger fs-5"></i>
                   </div>
+                  <span className="badge-custom bg-dark text-white">POCKET FRIENDLY</span>
                 </div>
+
+                <small className="text-muted fw-bold d-block mb-1" style={{ fontSize: '10px', letterSpacing: '0.5px' }}>STARTING AT</small>
+                <h3 className="fw-black text-dark mb-3" style={{ fontSize: '24px', fontWeight: '900' }}>UNDER ₹10K</h3>
+                <p className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5', height: '54px' }}>
+                  Essential skill certificates for immediate entry-level growth.
+                </p>
               </div>
-            ))}
+
+              <div className="mt-4">
+                <a href="#catalog-link" className="catalog-btn">
+                  VIEW CATALOG <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: 10K - 25K (Most Popular) */}
+          <div className="col">
+            <div className="budget-card border h-100 p-4 d-flex flex-column justify-content-between popular-border">
+              <div>
+                <div className="d-flex justify-content-between align-items-start mb-4">
+                  <div className="icon-box">
+                    <i className="bi bi-shield-check text-primary fs-5"></i>
+                  </div>
+                  <span className="badge-custom bg-danger text-white" style={{ backgroundColor: '#dc3545' }}>MOST POPULAR</span>
+                </div>
+
+                <small className="text-muted fw-bold d-block mb-1" style={{ fontSize: '10px', letterSpacing: '0.5px' }}>STARTING AT</small>
+                <h3 className="fw-black mb-3" style={{ fontSize: '24px', fontWeight: '900', color: '#dc3545' }}>₹10K - ₹25K</h3>
+                <p className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5', height: '54px' }}>
+                  Focused safety modules for specialized industrial roles.
+                </p>
+              </div>
+
+              <div className="mt-4">
+                <a href="#catalog-link" className="catalog-btn">
+                  VIEW CATALOG <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: 25K - 55K */}
+          <div className="col">
+            <div className="budget-card border h-100 p-4 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex justify-content-between align-items-start mb-4">
+                  <div className="icon-box">
+                    <i className="bi bi-currency-rupee text-success fs-5"></i>
+                  </div>
+                  <span className="badge-custom bg-dark text-white">HIGH ROI</span>
+                </div>
+
+                <small className="text-muted fw-bold d-block mb-1" style={{ fontSize: '10px', letterSpacing: '0.5px' }}>STARTING AT</small>
+                <h3 className="fw-black text-dark mb-3" style={{ fontSize: '24px', fontWeight: '900' }}>₹25K - ₹55K</h3>
+                <p className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5', height: '54px' }}>
+                  Industry-standard diplomas with high placement records.
+                </p>
+              </div>
+
+              <div className="mt-4">
+                <a href="#catalog-link" className="catalog-btn">
+                  VIEW CATALOG <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: 55K+ */}
+          <div className="col">
+            <div className="budget-card border h-100 p-4 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex justify-content-between align-items-start mb-4">
+                  <div className="icon-box">
+                    <i className="bi bi-award text-dark fs-5"></i>
+                  </div>
+                  <span className="badge-custom bg-dark text-white">ELITE CHOICE</span>
+                </div>
+
+                <small className="text-muted fw-bold d-block mb-1" style={{ fontSize: '10px', letterSpacing: '0.5px' }}>STARTING AT</small>
+                <h3 className="fw-black text-dark mb-3" style={{ fontSize: '24px', fontWeight: '900' }}>₹55K+</h3>
+                <p className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5', height: '54px' }}>
+                  Elite degrees and global combos for management roles.
+                </p>
+              </div>
+
+              <div className="mt-4">
+                <a href="#catalog-link" className="catalog-btn">
+                  VIEW CATALOG <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div className="container-fluid my-5 px-3">
+
+        {/* Header Title Section */}
+        <div className="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+          <div>
+            <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '11px', letterSpacing: '2px' }}>
+              CAMPUS LIFE & INFRASTRUCTURE
+            </h6>
+            <h2 className="fw-bold text-dark display-5 m-0" style={{ fontWeight: '900', letterSpacing: '-1px' }}>
+              Train where professionals <span style={{ color: '#dc3545' }}>train for real</span>
+            </h2>
+            <p className="text-muted m-0 mt-2" style={{ fontSize: '12px' }}>
+              10-acre practical ground, 3,500+ equipment assets, 300+ hours of hands-on training, and India's only on-campus emergency fleet.
+            </p>
+          </div>
+          <div>
+            <a href="#gallery" className="text-uppercase fw-bold text-danger text-decoration-none d-flex align-items-center gap-2 hover-dark" style={{ fontSize: '11px', letterSpacing: '1px' }}>
+              View Gallery Hub <i className="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
-      </section>
 
-      {/* JIFSA HIGHLIGHTS Section with AOS */}
-      <section className="py-5 bg-white">
-        <div className="container">
-          <div className="text-center mb-3" data-aos="fade-down">
-            <small className="fw-bold text-uppercase" style={{ color: '#dc3545', fontSize: '12px' }}>JIFSA HIGHLIGHTS</small>
-          </div>
-          <h2 className="text-center fw-bold mb-4" style={{ color: '#1d3557' }} data-aos="fade-up">Experience JIFSA in Motion</h2>
+        {/* Custom CSS for Gallery Overlay, Zoom, and Line Effects */}
+        <style jsx>{`
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background-color: #000000;
+      min-height: 230px;
+    }
 
-          <div className="row g-4 mt-3">
-            <div className="col-md-4" data-aos="fade-right" data-aos-delay="100">
-              <div className="text-center p-4 border rounded-4 h-100 highlight-card">
-                <i className="bi bi-check-circle-fill fs-1 text-success"></i>
-                <h5 className="mt-3 fw-bold">100% PLACEMENT ASSISTANCE</h5>
-                <p className="small">EXPERIENCE THE JIFSA JOURNEY FROM ENROLLMENT TO CAREER TAKEOFF</p>
+    .gallery-img-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .gallery-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 1. इमेज ज़ूम इफ़ेक्ट */
+    .gallery-item:hover .gallery-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    /* डार्क ओवरले जो स्क्रीनशॉट की तरह टेक्स्ट को उभरता है */
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .gallery-title {
+      font-size: 13px;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .gallery-desc {
+      font-size: 10px;
+      color: #cbd5e1;
+      margin: 0;
+    }
+
+    /* होवर पर आने वाली लाल/ऑरेंज लाइन */
+    .hover-line {
+      width: 0px;
+      height: 2px;
+      background-color: #dc3545;
+      margin-top: 8px;
+      transition: width 0.3s ease;
+    }
+
+    .gallery-item:hover .hover-line {
+      width: 30px; /* होवर करने पर लाइन बाहर आएगी */
+    }
+
+    .hover-dark {
+      transition: color 0.2s ease;
+    }
+    .hover-dark:hover {
+      color: #1f2937 !important;
+    }
+  `}</style>
+
+        {/* Grid Layout: Exact Match with Row 1 & Row 2 Proportions */}
+        <div className="row g-3">
+
+          {/* ROW 1: Big Left Image (7 Columns) & Right Image (5 Columns) */}
+          <div className="col-12 col-md-7">
+            <div className="gallery-item h-100">
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image1.avif" alt="Fire Tender & Ground Operations" />
               </div>
-            </div>
-            <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div className="text-center p-4 border rounded-4 h-100 highlight-card">
-                <i className="bi bi-geo-alt-fill fs-1 text-info"></i>
-                <h5 className="mt-3 fw-bold">OUR PRESENCE ACROSS INDIA</h5>
-                <p className="small">LOCAL ACCESS, GLOBAL STANDARDS</p>
-              </div>
-            </div>
-            <div className="col-md-4" data-aos="fade-left" data-aos-delay="300">
-              <div className="text-center p-4 border rounded-4 h-100 highlight-card">
-                <i className="bi bi-star-fill fs-1 text-warning"></i>
-                <h5 className="mt-3 fw-bold">PROVEN SUCCESS PATH</h5>
-                <p className="small">adani & Top Companies Trust Us</p>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">FIRE TENDER & GROUND OPERATIONS</h4>
+                <p className="gallery-desc">India's top tier practical training ground</p>
+                <div className="hover-line"></div>
               </div>
             </div>
           </div>
+
+          <div className="col-12 col-md-5">
+            <div className="gallery-item h-100">
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image2.avif" alt="Live Rescue Drills" />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">LIVE RESCUE DRILLS</h4>
+                <p className="gallery-desc">Tall ladder & rope rescue training</p>
+                <div className="hover-line"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* ROW 2: 3 Columns Equal Width (4-4-4) */}
+          <div className="col-12 col-md-4">
+            <div className="gallery-item" style={{ minHeight: '210px' }}>
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image3.avif" alt="Live Smoke & Extinguisher Training" />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">LIVE SMOKE & EXTINGUISHER TRAINING</h4>
+                <p className="gallery-desc">Hands-on fire suppression</p>
+                <div className="hover-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-4">
+            <div className="gallery-item" style={{ minHeight: '210px' }}>
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image5.avif" alt="Safety Equipment Lab" />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">SAFETY EQUIPMENT LAB</h4>
+                <p className="gallery-desc">3,500+ modern tools & instruments</p>
+                <div className="hover-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-4">
+            <div className="gallery-item" style={{ minHeight: '210px' }}>
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image4.avif" alt="Physical Agility Training" />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">PHYSICAL AGILITY TRAINING</h4>
+                <p className="gallery-desc">Obstacle course & fitness drills</p>
+                <div className="hover-line"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* ROW 3: Full Width Bottom Slider/Strip Image */}
+          <div className="col-12">
+            <div className="gallery-item" style={{ minHeight: '180px' }}>
+              <div className="gallery-img-wrapper">
+                <img src="images/train/image4.avif" alt="Students Batch Group Grid" />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title">PROUD INDUSTRY PROFESSIONALS</h4>
+                <p className="gallery-desc">Batches trained and ready for global deployments</p>
+                <div className="hover-line"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
+
 
       {/* FIRE & SAFETY FAQS Section with AOS */}
       <section className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
