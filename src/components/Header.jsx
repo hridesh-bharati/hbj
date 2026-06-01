@@ -145,12 +145,12 @@ const Header = () => {
       </nav>
 
       {/* --- FLOATING ACTION BUTTONS (FIXED POSITION) --- */}
-      
+
       {/* Left Side: WhatsApp Button */}
-      <a 
-        href="https://wa.me/918955776603" 
-        className="floating-btn whatsapp-float" 
-        target="_blank" 
+      <a
+        href="https://wa.me/918955776603"
+        className="floating-btn whatsapp-float"
+        target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
@@ -163,10 +163,10 @@ const Header = () => {
         <a href="tel:+918955776603" className="floating-btn call-float" aria-label="Call Us">
           <i className="bi bi-telephone-fill"></i>
         </a>
-        
-        {/* Message Button */}
-        <a href="sms:+918955776603" className="floating-btn message-float" aria-label="Send Message">
-          <i className="bi bi-chat-dots-fill"></i>
+
+        {/* Email Button */}
+        <a href="mainto:info@jifsa.in" className="floating-btn message-float" aria-label="Send Email">
+          <i className="bi bi-envelope"></i>
         </a>
       </div>
     </>

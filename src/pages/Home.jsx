@@ -281,57 +281,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Courses by Budget */}
-      <div className="container-fluid my-5 px-5">
-        <div className="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5" data-aos="fade-right"><div><h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>— INVEST IN YOUR FUTURE</h6><h2 className="fw-bolder text-dark display-5 m-0" style={{ fontWeight: '1200', letterSpacing: '-1px', lineHeight: '1.1' }}>CHOOSE YOUR COURSE<br />BY <span style={{ color: '#dc3545' }}>BUDGET</span></h2></div><div><a href="#all-courses" className="text-uppercase fw-bold text-dark text-decoration-none d-flex align-items-center gap-2 hover-red" style={{ fontSize: '11px', letterSpacing: '1px' }}>BROWSE ALL COURSES <i className="bi bi-arrow-right"></i></a></div></div>
-        <style>{`
-          .budget-card { border: none; border-top: 3px solid transparent; border-radius: 0px; background: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-top-color 0.3s ease; }
-          .budget-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important; border-top-color: #dc3545; }
-          .icon-box { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb; border: 1px solid #f3f4f6; }
-          .badge-custom { font-size: 9px; font-weight: 800; letter-spacing: 0.5px; padding: 4px 8px; border-radius: 0px; text-transform: uppercase; position: absolute; top: 20px; right: 20px; }
-          .catalog-btn { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: #dc3545; text-decoration: none; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
-          .budget-card:hover .catalog-btn { gap: 10px; }
-        `}</style>
-        <div className="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
-          {[
-            { range: 'UNDER ₹10K', desc: 'Essential skill certificates for immediate entry-level growth.', icon: 'bi-lightning-charge', badge: 'POCKET FRIENDLY', color: 'text-danger' },
-            { range: '₹10K - ₹25K', desc: 'Focused safety modules for specialized industrial roles.', icon: 'bi-shield-check', badge: 'MOST POPULAR', color: 'text-primary', popular: true },
-            { range: '₹25K - ₹55K', desc: 'Industry-standard diplomas with high placement records.', icon: 'bi-currency-rupee', badge: 'HIGH ROI', color: 'text-success' },
-            { range: '₹55K+', desc: 'Elite degrees and global combos for management roles.', icon: 'bi-award', badge: 'ELITE CHOICE', color: 'text-dark' },
-          ].map((course, idx) => (
-            <div className="col" key={idx} data-aos="zoom-in" data-aos-delay={idx * 100}>
-              <div className="budget-card border h-100 p-4 d-flex flex-column justify-content-between position-relative">
-                <div><div className="d-flex justify-content-between align-items-start mb-4"><div className="icon-box"><i className={`bi ${course.icon} ${course.color} fs-5`}></i></div><span className="badge-custom bg-dark text-white" style={course.popular ? { backgroundColor: '#dc3545' } : {}}>{course.badge}</span></div><small className="text-muted fw-bold d-block mb-1" style={{ fontSize: '10px', letterSpacing: '0.5px' }}>STARTING AT</small><h3 className="fw-black text-dark mb-3" style={{ fontSize: '24px', fontWeight: '900', color: course.popular ? '#dc3545' : 'inherit' }}>{course.range}</h3><p className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5', height: '54px' }}>{course.desc}</p></div>
-                <div className="mt-4"><a href="#catalog-link" className="catalog-btn">VIEW CATALOG <i className="bi bi-arrow-right"></i></a></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Gallery */}
-      <div className="container-fluid my-5 px-3">
-        <div className="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4" data-aos="fade-right"><div><h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '11px', letterSpacing: '2px' }}>CAMPUS LIFE & INFRASTRUCTURE</h6><h2 className="fw-bold text-dark display-5 m-0" style={{ fontWeight: '900', letterSpacing: '-1px' }}>Train where professionals <span style={{ color: '#dc3545' }}>train for real</span></h2><p className="text-muted m-0 mt-2" style={{ fontSize: '12px' }}>10-acre practical ground, 3,500+ equipment assets, 300+ hours of hands-on training, and India's only on-campus emergency fleet.</p></div><div><a href="#gallery" className="text-uppercase fw-bold text-danger text-decoration-none d-flex align-items-center gap-2 hover-dark" style={{ fontSize: '11px', letterSpacing: '1px' }}>View Gallery Hub <i className="bi bi-arrow-right"></i></a></div></div>
-        <style>{`
-          .gallery-item { position: relative; overflow: hidden; background-color: #000000; min-height: 230px; }
-          .gallery-img-wrapper { width: 100%; height: 100%; overflow: hidden; }
-          .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-          .gallery-item:hover .gallery-img-wrapper img { transform: scale(1.06); }
-          .gallery-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; z-index: 2; }
-          .gallery-title { font-size: 13px; font-weight: 900; color: #ffffff; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px; }
-          .gallery-desc { font-size: 10px; color: #cbd5e1; margin: 0; }
-          .hover-line { width: 0px; height: 2px; background-color: #dc3545; margin-top: 8px; transition: width 0.3s ease; }
-          .gallery-item:hover .hover-line { width: 30px; }
-        `}</style>
-        <div className="row g-3">
-          <div className="col-12 col-md-7" data-aos="fade-up" data-aos-delay="100"><div className="gallery-item h-100"><div className="gallery-img-wrapper"><img src="images/train/image1.avif" alt="Fire Tender" /></div><div className="gallery-overlay"><h4 className="gallery-title">FIRE TENDER & GROUND OPERATIONS</h4><p className="gallery-desc">India's top tier practical training ground</p><div className="hover-line"></div></div></div></div>
-          <div className="col-12 col-md-5" data-aos="fade-up" data-aos-delay="200"><div className="gallery-item h-100"><div className="gallery-img-wrapper"><img src="images/train/image2.avif" alt="Live Rescue Drills" /></div><div className="gallery-overlay"><h4 className="gallery-title">LIVE RESCUE DRILLS</h4><p className="gallery-desc">Tall ladder & rope rescue training</p><div className="hover-line"></div></div></div></div>
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300"><div className="gallery-item" style={{ minHeight: '210px' }}><div className="gallery-img-wrapper"><img src="images/train/image3.avif" alt="Live Smoke Training" /></div><div className="gallery-overlay"><h4 className="gallery-title">LIVE SMOKE & EXTINGUISHER TRAINING</h4><p className="gallery-desc">Hands-on fire suppression</p><div className="hover-line"></div></div></div></div>
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-delay="400"><div className="gallery-item" style={{ minHeight: '210px' }}><div className="gallery-img-wrapper"><img src="images/train/image5.avif" alt="Safety Equipment Lab" /></div><div className="gallery-overlay"><h4 className="gallery-title">SAFETY EQUIPMENT LAB</h4><p className="gallery-desc">3,500+ modern tools & instruments</p><div className="hover-line"></div></div></div></div>
-          <div className="col-12 col-md-4" data-aos="fade-up" data-aos-delay="500"><div className="gallery-item" style={{ minHeight: '210px' }}><div className="gallery-img-wrapper"><img src="images/train/image4.avif" alt="Physical Agility" /></div><div className="gallery-overlay"><h4 className="gallery-title">PHYSICAL AGILITY TRAINING</h4><p className="gallery-desc">Obstacle course & fitness drills</p><div className="hover-line"></div></div></div></div>
-        </div>
-      </div>
-
       {/* FAQ Section */}
       <section className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
         <div className="container-fluid"><div className="text-center mb-3" data-aos="fade-down"><small className="fw-bold text-uppercase" style={{ color: '#dc3545', fontSize: '12px' }}>FIRE & SAFETY FAQS</small></div><h2 className="text-center fw-bold mb-3" style={{ color: '#1d3557' }} data-aos="fade-up">Answers to your career questions</h2><p className="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">Essential guidance on eligibility, salaries, course options, and admissions — preserved from our trusted legacy Fire & Safety FAQ resource.</p>
@@ -350,10 +299,10 @@ const Home = () => {
         <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
           {[
             { name: 'Mr. Bahauddin Ahmad', role: 'HONOURABLE CHAIRMAN CUM MANAGING DIRECTOR (CMD)', img: 'images/std/team-1.jpg' },
-            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/std/team-1.jpg' },
-            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/std/team-1.jpg' },
-            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/std/team-1.jpg' },
-            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/std/team-1.jpg' },
+            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/std/team-2.jpg' },
+            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/std/team-3.jpg' },
+            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/std/team-4.jpg' },
+            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/std/team-5.jpg' },
           ].map((member, idx) => (
             <div className="col" key={idx} data-aos="fade-up" data-aos-delay={idx * 100}><div className="card h-100 border-0 shadow-sm" style={{ borderRadius: '0px', overflow: 'hidden' }}><img src={member.img} alt={member.name} className="card-img-top img-fluid" style={{ width: '100%', height: '240px', objectFit: 'cover' }} /><div className="card-body px-3 py-3 d-flex flex-column justify-content-between text-start" style={{ backgroundColor: '#fff5f2' }}><div><h5 className="card-title fw-bold text-dark mb-1" style={{ fontSize: '14px', fontWeight: '800' }}>{member.name}</h5><p className="card-text text-muted fw-semibold text-uppercase m-0" style={{ fontSize: '10px', letterSpacing: '0.3px', lineHeight: '1.4' }}>{member.role}</p></div><div className="mt-3"><div style={{ width: '25px', height: '2px', backgroundColor: '#e65c1e' }}></div></div></div></div></div>
           ))}
