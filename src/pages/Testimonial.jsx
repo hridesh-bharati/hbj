@@ -11,7 +11,7 @@ const testimonialData = [
     company: "RISAL (RAWABI INDUSTRIAL)",
     placement: "PLACEMENT: 2500 RIYAL/MONTH",
     location: "SAUDI ARABIA",
-    img: "images/std/team-1.jpg",
+    img: "images/std/std1.png",
     text: "Heartfelt thanks to JIFSA for their constant support, guidance, and excellent training that enhanced my technical and professional skills. Grateful to the placement team for their encouragement and direction — their efforts helped me achieve this global career opportunity."
   },
   {
@@ -22,7 +22,7 @@ const testimonialData = [
     company: "EXPERTISE CONTRACTING CO.",
     placement: null,
     location: "SAUDI ARABIA",
-    img: "images/std/team-2.jpg",
+    img: "images/std/std2.png",
     text: "Thank you JIFSA placement department for providing me an opportunity to get shortlisted and also got an opportunity for the interview in the International Company for the position of Fire Watch. I would suggest if you are looking for a fire and safety course go for JIFSA."
   },
   {
@@ -33,7 +33,7 @@ const testimonialData = [
     company: "AL-MUZAIN COMPANY",
     placement: null,
     location: "SAUDI ARABIA",
-    img: "images/std/team-3.jpg",
+    img: "images/std/std3.png",
     text: "I am excited to share that I have been placed with Al-Muzain Company in Saudi Arabia, thanks to your excellent placement assistance. Your support was invaluable, and I highly recommend JIFSA Academy to anyone seeking top-notch international placement services."
   },
   {
@@ -44,7 +44,7 @@ const testimonialData = [
     company: "KSA, QATAR",
     placement: "PLACEMENT: 2000 RIYAL/MONTH",
     location: "MIDDLE EAST",
-    img: "images/std/team-4.jpg",
+    img: "images/std/std4.png",
     text: "The high-quality training, personality development sessions, and continuous guidance I received there equipped me with the essential knowledge and practical skills required to excel in my profession. I wholeheartedly recommend JIFSA to anyone aspiring to build a strong and successful career."
   },
   {
@@ -55,7 +55,7 @@ const testimonialData = [
     company: "ARAMCO",
     placement: "PLACEMENT: 3500 RIYAL/MONTH",
     location: "SAUDI ARABIA",
-    img: "images/std/team-5.jpg",
+    img: "images/std/std5.png",
     text: "Joining JIFSA was the turning point of my career. The practical training sessions mimics real world challenges which helped me clear my client interview in the very first attempt."
   },
   {
@@ -66,7 +66,7 @@ const testimonialData = [
     company: "NASS CONTRACTING",
     placement: null,
     location: "BAHRAIN",
-    img: "images/std/team-6.jpg",
+    img: "images/std/std6.png",
     text: "The deep emphasis on technical safety protocols taught by industry experts at JIFSA gave me an edge over other international candidates. Truly an iconic academy."
   },
   {
@@ -77,7 +77,7 @@ const testimonialData = [
     company: "DESCON ENGINEERING",
     placement: "PLACEMENT: 4000 AED/MONTH",
     location: "DUBAI, UAE",
-    img: "images/std/team-7.jpg",
+    img: "images/std/std7.png",
     text: "Exceptional placement desk! They guided me from resume building to Mock interviews. I am proud to represent JIFSA internationally here in Dubai."
   },
   {
@@ -88,7 +88,7 @@ const testimonialData = [
     company: "AL-YAMAMA COMPLEX",
     placement: null,
     location: "SAUDI ARABIA",
-    img: "images/std/team-8.jpg",
+    img: "images/std/std8.png",
     text: "JIFSA is the best institute for Fire and Safety courses. Highly advanced labs and cooperative faculty members who are always ready to help you even after completion of the course."
   },
   {
@@ -99,7 +99,7 @@ const testimonialData = [
     company: "QATAR ENERGY",
     placement: "PLACEMENT: 3000 QAR/MONTH",
     location: "QATAR",
-    img: "images/std/team-9.jpg",
+    img: "images/std/std9.png",
     text: "I am deeply indebted to the rigorous training standards of JIFSA. It gave me the confidence to handle high-stress safety operations flawlessly in my current enterprise."
   },
   {
@@ -110,7 +110,7 @@ const testimonialData = [
     company: "KENT ENERGIES",
     placement: null,
     location: "KUWAIT",
-    img: "images/std/team-10.jpg",
+    img: "images/std/std10.png",
     text: "Excellent course structure combined with premium global placement opportunities. JIFSA delivers exactly what it promises on day one."
   }
 ];

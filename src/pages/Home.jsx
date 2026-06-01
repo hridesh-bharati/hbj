@@ -295,14 +295,14 @@ const Home = () => {
       </section>
 
       {/* Leadership Team */}
-      <div className="container my-5 px-3"><div className="text-center mb-5" data-aos="fade-down"><h2 className="fw-bold text-dark display-6" style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>Recognized by <span style={{ color: '#e65c1e' }}>India's top</span> industrial boards</h2></div>
+      <div className="container-fluid my-5"><div className="text-center mb-5" data-aos="fade-down"><h2 className="fw-bold text-dark display-6" style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>The Minds Behind <span style={{ color: '#e65c1e' }}>JIFSA Organization</span></h2></div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
           {[
-            { name: 'Mr. Bahauddin Ahmad', role: 'HONOURABLE CHAIRMAN CUM MANAGING DIRECTOR (CMD)', img: 'images/std/team-1.jpg' },
-            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/std/team-2.jpg' },
-            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/std/team-3.jpg' },
-            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/std/team-4.jpg' },
-            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/std/team-5.jpg' },
+            { name: 'Mr. Bahauddin Ahmad', role: 'HONOURABLE CHAIRMAN CUM MANAGING DIRECTOR (CMD)', img: 'images/teams/t1.avif' },
+            { name: 'Mrs. Farhat Ahmad', role: 'VICE CHAIRPERSON', img: 'images/teams/t2.avif' },
+            { name: 'Miss Sara Bilqis', role: 'DIRECTOR-BD', img: 'images/teams/t3.avif' },
+            { name: 'Ms. Priya Malhotra', role: 'DIRECTOR', img: 'images/teams/t4.avif' },
+            { name: 'Mr. Ravi Jangde', role: 'ASSOCIATE DIRECTOR', img: 'images/teams/t5.avif' },
           ].map((member, idx) => (
             <div className="col" key={idx} data-aos="fade-up" data-aos-delay={idx * 100}><div className="card h-100 border-0 shadow-sm" style={{ borderRadius: '0px', overflow: 'hidden' }}><img src={member.img} alt={member.name} className="card-img-top img-fluid" style={{ width: '100%', height: '240px', objectFit: 'cover' }} /><div className="card-body px-3 py-3 d-flex flex-column justify-content-between text-start" style={{ backgroundColor: '#fff5f2' }}><div><h5 className="card-title fw-bold text-dark mb-1" style={{ fontSize: '14px', fontWeight: '800' }}>{member.name}</h5><p className="card-text text-muted fw-semibold text-uppercase m-0" style={{ fontSize: '10px', letterSpacing: '0.3px', lineHeight: '1.4' }}>{member.role}</p></div><div className="mt-3"><div style={{ width: '25px', height: '2px', backgroundColor: '#e65c1e' }}></div></div></div></div></div>
           ))}
