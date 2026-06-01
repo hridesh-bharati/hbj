@@ -772,7 +772,7 @@ const Home = () => {
                       </div>
                       <div>
                         <span className="info-label">CALL US ANYTIME</span>
-                        <h6 className="info-value">+91 8955776603</h6>
+                        <h6 className="info-value">+91 8860700101</h6>
                       </div>
                     </div>
                   </div>

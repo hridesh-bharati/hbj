@@ -65,7 +65,7 @@ const Header = () => {
             <div className="col-12 col-md-4 d-none d-md-flex justify-content-start align-items-center gap-2">
               <i className="bi bi-telephone-fill text-secondary" style={{ fontSize: '11px' }}></i>
               <span className="fw-bold top-bar-text">
-                HELPLINE: <span>+91 8955776603</span>
+                HELPLINE: <span>+91 8860700101</span>
               </span>
             </div>
 
@@ -148,7 +148,7 @@ const Header = () => {
 
       {/* Left Side: WhatsApp Button */}
       <a
-        href="https://wa.me/918955776603"
+        href="https://wa.me/918860700101"
         className="floating-btn whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
@@ -160,12 +160,12 @@ const Header = () => {
       {/* Right Side: Call & Message Buttons */}
       <div className="floating-actions-right">
         {/* Call Button */}
-        <a href="tel:+918955776603" className="floating-btn call-float" aria-label="Call Us">
+        <a href="tel:+918860700101" className="floating-btn call-float" aria-label="Call Us">
           <i className="bi bi-telephone-fill"></i>
         </a>
 
         {/* Email Button */}
-        <a href="mainto:info@jifsa.in" className="floating-btn message-float" aria-label="Send Email">
+        <a href="mainto:jifsadelhi101@gmail.com" className="floating-btn message-float" aria-label="Send Email">
           <i className="bi bi-envelope"></i>
         </a>
       </div>
