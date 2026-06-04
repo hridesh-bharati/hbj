@@ -849,7 +849,7 @@ const Home = () => {
                       </div>
                       <div>
                         <span className="info-label">EMAIL SUPPORT</span>
-                        <h6 className="info-value">jifsadehli101@gmail.com</h6>
+                        <h6 className="info-value">jifsadelhi101@gmail.com</h6>
                       </div>
                     </div>
                   </div>
