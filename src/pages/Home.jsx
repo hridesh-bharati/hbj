@@ -795,7 +795,7 @@ const Home = () => {
                 {/* Interactive Live Google Map Container (Bottom) */}
                 <div className="flex-grow-1 contact-map-wrapper">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7278023.042315776!2d75.56654735081202!3d27.038943199002322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39994e9f7b4a09d3%3A0xf6a5476d3617249d!2sUttar%20Pradesh!5e0!3m2!1sen!2sin!4v1780219377183!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3501.7594023302954!2d77.0932222!3d28.6369722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDM4JzEzLjEiTiA3N8KwMDUnMzUuNiJF!5e0!3m2!1sen!2sin!4v1780557249443!5m2!1sen!2sin"
                     className="w-100 h-100 border-0 map-iframe-element"
                     allowFullScreen=""
                     loading="lazy"
