@@ -6,6 +6,15 @@ import "./Home.css";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Form State
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    course: '',
+    message: ''
+  });
 
   useEffect(() => {
     AOS.init({
@@ -31,6 +40,34 @@ const Home = () => {
   const goToSlide = (index) => setActiveIndex(index);
   const goToPrev = () => setActiveIndex((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
   const goToNext = () => setActiveIndex((prev) => (prev + 1) % carouselSlides.length);
+
+  // Handle Input Changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // WhatsApp Form Submit Handler
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    
+    const whatsappNumber = "918860700101"; 
+    
+    // Construct text template cleanly
+    const text = `*New Admission Enquiry* \n\n` +
+                 `👤 *Name:* ${formData.name}\n` +
+                 `📧 *Email:* ${formData.email}\n` +
+                 `📞 *Phone:* ${formData.phone}\n` +
+                 `📚 *Course:* ${formData.course || 'Not Specified'}\n` +
+                 `💬 *Message:* ${formData.message}`;
+
+    // Encode URL parameters
+    const encodedText = encodeURIComponent(text);
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedText}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+  };
 
   return (
     <>
@@ -73,25 +110,24 @@ const Home = () => {
                 <div className="container position-relative h-100 d-flex align-items-center" style={{ zIndex: 2 }}>
                   <div className="row w-100 mx-auto justify-content-center">
 
-                    {/* text-center class for complete centering & mx-auto for description centering */}
                     <div className="col-xl-8 col-lg-10 col-md-11 text-center text-white px-2 px-md-4">
 
-                      {/* 1. Main Title - Removed textShadow */}
+                      {/* Main Title */}
                       <h1 className="fw-extrabold mb-3 text-uppercase tracking-tight display-5 display-md-3" style={{ fontWeight: 900, lineHeight: '1.1' }}>
                         {slide.title}
                       </h1>
 
-                      {/* 2. Subtitle */}
+                      {/* Subtitle */}
                       <p className="fw-bold text-warning mb-3 mb-md-4 tracking-wide text-uppercase" style={{ fontSize: 'calc(1rem + 0.5vw)', letterSpacing: '1px' }}>
                         {slide.subtitle}
                       </p>
 
-                      {/* 3. Description - Forced mx-auto for strict centering */}
+                      {/* Description */}
                       <p className="mb-4 mb-md-5 text-light mx-auto lh-base fs-6 fs-md-5" style={{ maxWidth: '680px', fontWeight: '400', opacity: 0.85 }}>
                         {slide.description}
                       </p>
 
-                      {/* 4. Action Buttons Group - Set justify-content-center for all screen sizes */}
+                      {/* Action Buttons Group */}
                       <div className="d-flex gap-3 justify-content-center align-items-center mt-2">
                         <button className="btn btn-warning rounded-pill px-4 py-2 py-md-3 fw-bold text-uppercase tracking-wider shadow" style={{ fontSize: 'calc(0.8rem + 0.2vw)' }}>
                           {slide.buttonText} →
@@ -311,7 +347,7 @@ const Home = () => {
       {/* Testimonials */}
       <Testimonial />
 
-      {/* Placement  */}
+      {/* Placement & Franchise */}
       <div className="franchise-section-wrapper py-5">
         <div className="container px-3">
           <div className="row g-4 align-items-center">
@@ -443,8 +479,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
+      {/* Placement Timeline */}
       <div className="placement-flow-wrapper my-5 px-3">
-        {/* Header Title Block */}
         <div className="text-center mb-5" data-aos="fade-down">
           <h6 className="placement-section-tag text-uppercase fw-bold text-danger mb-1">
             PROVEN SUCCESS PATH
@@ -457,7 +494,6 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Process Steps Timeline Flow */}
         <div className="placement-timeline-row g-4 text-center position-relative mt-4">
 
           {/* Step 1 */}
@@ -472,7 +508,6 @@ const Home = () => {
             <span className="placement-step-subheading">EXPERT CONSULTATION</span>
           </div>
 
-          {/* Connecting Arrow 1 (Desktop only) */}
           <div className="d-none d-lg-flex placement-arrow-box">
             <div className="placement-arrow-graphics"></div>
           </div>
@@ -489,7 +524,6 @@ const Home = () => {
             <span className="placement-step-subheading">VERIFIED ADMISSION</span>
           </div>
 
-          {/* Connecting Arrow 2 (Desktop only) */}
           <div className="d-none d-lg-flex placement-arrow-box">
             <div className="placement-arrow-graphics"></div>
           </div>
@@ -506,7 +540,6 @@ const Home = () => {
             <span className="placement-step-subheading">EASY EMI OPTIONS</span>
           </div>
 
-          {/* Connecting Arrow 3 (Desktop only) */}
           <div className="d-none d-lg-flex placement-arrow-box">
             <div className="placement-arrow-graphics"></div>
           </div>
@@ -523,7 +556,6 @@ const Home = () => {
             <span className="placement-step-subheading">HANDS-ON TRAINING</span>
           </div>
 
-          {/* Connecting Arrow 4 (Desktop only) */}
           <div className="d-none d-lg-flex placement-arrow-box">
             <div className="placement-arrow-graphics"></div>
           </div>
@@ -543,10 +575,10 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Hiring Partners */}
       <div id="apply" className="placement-section-container my-5 px-3">
         <div className="row g-5">
 
-          {/* LEFT SIDE: Placement Initiative & Hiring Partners */}
           <div className="col-12 col-lg-5 text-start" data-aos="fade-right">
             <h6 className="placement-sub-title text-uppercase fw-bold text-danger mb-2">
               PLACEMENT INTIATIVE
@@ -559,7 +591,6 @@ const Home = () => {
               We connect you directly with over 500+ global hiring partners with verified CTC packages — 100% placement assistance.
             </p>
 
-            {/* Hiring Partners Badges Grid */}
             <h6 className="partners-title text-uppercase fw-bold text-danger mb-3">
               HIRING PARTNERS
             </h6>
@@ -575,7 +606,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE: Live Job Data List */}
+          {/* Live Job Data List */}
           <div className="col-12 col-lg-7 text-start" data-aos="fade-left" data-aos-delay="200">
             <div className="d-flex align-items-center gap-2 mb-4">
               <span className="live-dot-square">■</span>
@@ -584,7 +615,6 @@ const Home = () => {
               </h6>
             </div>
 
-            {/* Jobs Vertical Stack */}
             <div className="d-flex flex-column gap-3">
 
               {/* Job 1: HSE Officer */}
@@ -673,7 +703,6 @@ const Home = () => {
 
             </div>
 
-            {/* Footer Link Navigation */}
             <div className="text-end mt-3">
               <a href="#all-positions" className="view-all-jobs-link fw-bold text-decoration-none">
                 See Salary Packages; <i className="bi bi-arrow-right small"></i> View all open positions <i className="bi bi-arrow-right"></i>
@@ -684,10 +713,10 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Contact Form Section */}
       <div id="contact" className="contact-section-wrapper my-5 p-3 border-top">
         <div className="container px-0">
 
-          {/* Header Title Section */}
           <div className="text-center mb-5" data-aos="fade-down">
             <h6 className="contact-sub-title text-uppercase fw-bold text-danger mb-2">
               GET IN TOUCH
@@ -700,7 +729,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Main Grid: Left Form, Right Info & Map */}
           <div className="row g-4 align-items-stretch mt-4">
 
             {/* LEFT COLUMN: Modern Interactive Contact Form */}
@@ -708,41 +736,80 @@ const Home = () => {
               <div className="contact-form-card p-4 h-100 bg-white">
                 <h4 className="form-inner-title mb-4">Send Us A Message</h4>
 
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={handleFormSubmit}>
                   <div className="row g-3">
 
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">YOUR NAME</label>
-                        <input type="text" className="form-control-custom" placeholder="John Doe" required />
+                        <input 
+                          type="text" 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="form-control-custom" 
+                          placeholder="John Doe" 
+                          required 
+                        />
                       </div>
                     </div>
 
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">EMAIL ADDRESS</label>
-                        <input type="email" className="form-control-custom" placeholder="example@mail.com" required />
+                        <input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="form-control-custom" 
+                          placeholder="example@mail.com" 
+                          required 
+                        />
                       </div>
                     </div>
 
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">PHONE NUMBER</label>
-                        <input type="tel" className="form-control-custom" placeholder="+91 8860700101" required />
+                        <input 
+                          type="tel" 
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="form-control-custom" 
+                          placeholder="+91 8860700101" 
+                          required 
+                        />
                       </div>
                     </div>
 
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">SUBJECT / COURSE INTEREST</label>
-                        <input type="text" className="form-custom-select form-control-custom" placeholder="Fire & Safety Diploma" />
+                        <input 
+                          type="text" 
+                          name="course"
+                          value={formData.course}
+                          onChange={handleInputChange}
+                          className="form-custom-select form-control-custom" 
+                          placeholder="Fire & Safety Diploma" 
+                        />
                       </div>
                     </div>
 
                     <div className="col-12">
                       <div className="form-group-custom">
                         <label className="form-label-custom">YOUR MESSAGE</label>
-                        <textarea className="form-control-custom text-area-custom" rows="4" placeholder="Write your query here..." required></textarea>
+                        <textarea 
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          className="form-control-custom text-area-custom" 
+                          rows="4" 
+                          placeholder="Write your query here..." 
+                          required
+                        ></textarea>
                       </div>
                     </div>
 
@@ -761,10 +828,8 @@ const Home = () => {
             <div className="col-12 col-lg-6" data-aos="fade-left" data-aos-delay="200">
               <div className="d-flex flex-column gap-3 h-100">
 
-                {/* Quick Info Grid (Top) */}
                 <div className="row g-3">
 
-                  {/* Phone Quick Card */}
                   <div className="col-12 col-sm-6">
                     <div className="info-quick-card p-3 d-flex align-items-center gap-3">
                       <div className="info-icon-box text-danger">
@@ -777,7 +842,6 @@ const Home = () => {
                     </div>
                   </div>
 
-                  {/* Email Quick Card */}
                   <div className="col-12 col-sm-6">
                     <div className="info-quick-card p-3 d-flex align-items-center gap-3">
                       <div className="info-icon-box text-danger">
@@ -792,7 +856,7 @@ const Home = () => {
 
                 </div>
 
-                {/* Interactive Live Google Map Container (Bottom) */}
+                {/* Interactive Live Google Map Container */}
                 <div className="flex-grow-1 contact-map-wrapper">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3501.7594023302954!2d77.0932222!3d28.6369722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDM4JzEzLjEiTiA3N8KwMDUnMzUuNiJF!5e0!3m2!1sen!2sin!4v1780557249443!5m2!1sen!2sin"

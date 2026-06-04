@@ -98,14 +98,24 @@ const Header = () => {
           </div>
         </div>
       </div>
-
       {/* Main Navbar */}
       <nav className={`navbar navbar-expand-lg sticky-top custom-navbar ${scrolled ? 'navbar-scrolled' : 'navbar-default'}`}>
         <div className="container-fluid navbar-container d-flex align-items-center justify-content-between flex-nowrap">
 
-          {/* दोनों लोगोज़ को एक साथ एक ही लिंक रैपर में रखा गया है */}
+          {/* लोगो और टेक्स्ट्स को एक साथ रखने के लिए अपडेटेड अलाइनमेंट */}
           <Link className="navbar-brand fw-bold text-decoration-none d-flex align-items-center gap-2 flex-shrink-0" to="/" onClick={(e) => handleNavClick(e, 'hero')}>
-            <b className='text-danger'>DELHI CENTRE</b>
+            {/* लोगो इमेज */}
+            <img src="logo.avif" alt="logo 1" style={{ width: 'auto', maxHeight: '50px', maxWidth: '120px', objectFit: 'contain' }} />
+
+            {/* लोगो के आगे आने वाला टेक्स्ट (एक के नीचे एक परफेक्ट अलाइनमेंट के लिए) */}
+            <div className="d-flex flex-column text-start" style={{ lineHeight: '1.2' }}>
+              <b className='text-primary' style={{ fontSize: 'clamp(16px, 1.2vw, 18px)', letterSpacing: '0.5px' }}>
+                DELHI CENTRE
+              </b>
+              <span className="text-muted fw-bold text-uppercase" style={{ fontSize: 'clamp(7px, 0.75vw, 11px)', letterSpacing: '0.3px' }}>
+                ST. JOSEPH'S INTERNATIONAL <br /> FIRE & SAFETY ACADEMY
+              </span>
+            </div>
           </Link>
 
           {/* मोबाइल मेनू बटन */}
