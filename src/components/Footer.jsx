@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-dark text-white pt-5 pb-4 mt-5">
@@ -7,7 +8,12 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4 mb-4">
             <h4 className="fw-bold mb-3" style={{ color: '#e65c1e' }}>JIFSA</h4>
-            <p className="text-white-50 small">St Joseph's International Fire and Safety Academy — India's No.1 Institute for Fire & Industrial Safety since 1996.</p>
+            <p className="text-white-50 small mb-3">St Joseph's International Fire and Safety Academy — India's No.1 Institute for Fire & Industrial Safety since 1996.</p>
+            {/* Address added right under the description */}
+            <div className="text-white-50 small border-top border-secondary pt-3">
+              <p className="mb-1 fw-bold text-white"><i className="bi bi-geo-alt-fill me-2" style={{ color: '#e65c1e' }}></i>Delhi Office:</p>
+              <p className="mb-0">Plot No: 24, Block 4A, First Floor, Tilak Nagar, Near Tilak Nagar Metro Station, New Delhi - 110018</p>
+            </div>
           </div>
           <div className="col-lg-2 col-6 mb-4">
             <h5 className="fw-bold mb-3">Quick Links</h5>

@@ -17,10 +17,10 @@ const Home = () => {
   }, []);
 
   const carouselSlides = [
-    { id: 1, title: 'INDUSTRIAL SAFETY', subtitle: 'Degree, ADIS, Diploma Courses', description: '12th Pass from any stream OR 10th + 2 years recognised ITI', image: '/images/hero1.webp', buttonText: 'Explore Courses', buttonLink: '/courses' },
-    { id: 2, title: 'GLOBAL PLACEMENTS', subtitle: '35,000+ placed in Aramco, ADNOC, L&T', description: 'Industry driven curriculum with 10-acre practical ground', image: '/images/hero2.webp', buttonText: 'View Placements', buttonLink: '/placements' },
-    { id: 3, title: 'TUV SUD & RUNGTA Collaboration', subtitle: 'Certified Safety Officer & International Skill University', description: 'ISO Certified Institute with global recognition', image: '/images/hero3.webp', buttonText: 'Collaborations', buttonLink: '/organization' },
-    { id: 4, title: 'INTERNATIONAL CERTIFICATIONS', subtitle: 'NEBOSH, IOSH, OSHA Approved Courses', description: 'Globally recognized safety certifications with placement assistance', image: '/images/hero4.webp', buttonText: 'Get Certified', buttonLink: '/courses' }
+    { id: 1, title: 'INDUSTRIAL SAFETY', subtitle: 'Degree, ADIS, Diploma Courses', description: '12th Pass from any stream OR 10th + 2 years recognised ITI', image: '/images/hero1.avif', buttonText: 'Explore Courses', buttonLink: '/courses' },
+    { id: 2, title: 'GLOBAL PLACEMENTS', subtitle: '35,000+ placed in Aramco, ADNOC, L&T', description: 'Industry driven curriculum with 10-acre practical ground', image: '/images/hero2.avif', buttonText: 'View Placements', buttonLink: '/placements' },
+    { id: 3, title: 'TUV SUD & RUNGTA Collaboration', subtitle: 'Certified Safety Officer & International Skill University', description: 'ISO Certified Institute with global recognition', image: '/images/hero3.avif', buttonText: 'Collaborations', buttonLink: '/organization' },
+    { id: 4, title: 'INTERNATIONAL CERTIFICATIONS', subtitle: 'NEBOSH, IOSH, OSHA Approved Courses', description: 'Globally recognized safety certifications with placement assistance', image: '/images/hero4.avif', buttonText: 'Get Certified', buttonLink: '/courses' }
   ];
 
   useEffect(() => {
@@ -71,30 +71,30 @@ const Home = () => {
 
                 {/* Content Container */}
                 <div className="container position-relative h-100 d-flex align-items-center" style={{ zIndex: 2 }}>
-                  <div className="row w-100 mx-auto justify-content-start">
+                  <div className="row w-100 mx-auto justify-content-center">
 
-                    {/* PC पर col-lg-9 किया ताकि टेक्स्ट और चौड़ाई में फैले और स्क्रीन भरी हुई लगे */}
-                    <div className="col-xl-8 col-lg-10 col-md-11 text-center text-md-start text-white px-2 px-md-4">
+                    {/* text-center class for complete centering & mx-auto for description centering */}
+                    <div className="col-xl-8 col-lg-10 col-md-11 text-center text-white px-2 px-md-4">
 
-                      {/* 1. Main Title - पीसी पर भारी लुक देने के लिए display-3 क्लास जोड़ी */}
-                      <h1 className="fw-extrabold mb-3 text-uppercase tracking-tight display-5 display-md-3" style={{ fontWeight: 900, lineHeight: '1.1', textShadow: '2px 2px 10px rgba(0,0,0,0.5)' }}>
+                      {/* 1. Main Title - Removed textShadow */}
+                      <h1 className="fw-extrabold mb-3 text-uppercase tracking-tight display-5 display-md-3" style={{ fontWeight: 900, lineHeight: '1.1' }}>
                         {slide.title}
                       </h1>
 
-                      {/* 2. Subtitle - पीसी पर और बड़ा और हाइलाइटेड */}
+                      {/* 2. Subtitle */}
                       <p className="fw-bold text-warning mb-3 mb-md-4 tracking-wide text-uppercase" style={{ fontSize: 'calc(1rem + 0.5vw)', letterSpacing: '1px' }}>
                         {slide.subtitle}
                       </p>
 
-                      {/* 3. Description - पीसी पर विड्थ बढ़ाई (maxWidth: '680px') ताकि कंटेंट स्क्रीन को भरा-भरा दिखाए */}
-                      <p className="mb-4 mb-md-5 text-light mx-auto mx-md-0 lh-base fs-6 fs-md-5" style={{ maxWidth: '680px', fontWeight: '400', opacity: 0.85 }}>
+                      {/* 3. Description - Forced mx-auto for strict centering */}
+                      <p className="mb-4 mb-md-5 text-light mx-auto lh-base fs-6 fs-md-5" style={{ maxWidth: '680px', fontWeight: '400', opacity: 0.85 }}>
                         {slide.description}
                       </p>
 
-                      {/* 4. Action Buttons Group - पीसी पर बड़े पैडिंग वाले प्रीमियम बटन्स */}
-                      <div className="d-flex gap-3 justify-content-center justify-content-md-start align-items-center mt-2">
+                      {/* 4. Action Buttons Group - Set justify-content-center for all screen sizes */}
+                      <div className="d-flex gap-3 justify-content-center align-items-center mt-2">
                         <button className="btn btn-warning rounded-pill px-4 py-2 py-md-3 fw-bold text-uppercase tracking-wider shadow" style={{ fontSize: 'calc(0.8rem + 0.2vw)' }}>
-                          {slide.buttonText} &rarr;
+                          {slide.buttonText} →
                         </button>
                         <button className="btn btn-outline-light rounded-pill px-4 py-2 py-md-3 tracking-wider fw-semibold" style={{ fontSize: 'calc(0.8rem + 0.2vw)' }}>
                           Get Fees Structure
@@ -109,7 +109,7 @@ const Home = () => {
             ))}
           </div>
 
-          {/* Navigation Controls (पीसी पर दिखेंगे और बड़े एरो के साथ रिफाइंड हैं) */}
+          {/* Navigation Controls */}
           <button className="carousel-control-prev d-none d-md-flex" onClick={goToPrev} aria-label="Previous" style={{ width: '5%' }}>
             <span className="carousel-control-prev-icon p-3" style={{ backgroundSize: '100% 100%' }}></span>
           </button>
