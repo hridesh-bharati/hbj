@@ -728,7 +728,7 @@ const Home = () => {
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">PHONE NUMBER</label>
-                        <input type="tel" className="form-control-custom" placeholder="+91 98765 43210" required />
+                        <input type="tel" className="form-control-custom" placeholder="+91 8860700101" required />
                       </div>
                     </div>
 
@@ -785,7 +785,7 @@ const Home = () => {
                       </div>
                       <div>
                         <span className="info-label">EMAIL SUPPORT</span>
-                        <h6 className="info-value">info@jifsa.com</h6>
+                        <h6 className="info-value">jifsadehli101@gmail.com</h6>
                       </div>
                     </div>
                   </div>

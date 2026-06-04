@@ -105,8 +105,7 @@ const Header = () => {
 
           {/* दोनों लोगोज़ को एक साथ एक ही लिंक रैपर में रखा गया है */}
           <Link className="navbar-brand fw-bold text-decoration-none d-flex align-items-center gap-2 flex-shrink-0" to="/" onClick={(e) => handleNavClick(e, 'hero')}>
-            <img src="logo.avif" alt="logo 1" style={{ width: 'auto', maxHeight: '45px', maxWidth: '120px' }} />
-            <img src="imgLogo.avif" alt="logo 2" style={{ width: 'auto', maxHeight: '45px', maxWidth: '120px' }} />
+            <b className='text-danger'>DELHI CENTRE</b>
           </Link>
 
           {/* मोबाइल मेनू बटन */}
