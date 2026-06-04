@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   // Form State
   const [formData, setFormData] = useState({
     name: '',
@@ -50,16 +50,16 @@ const Home = () => {
   // WhatsApp Form Submit Handler
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    
-    const whatsappNumber = "918860700101"; 
-    
+
+    const whatsappNumber = "918860700101";
+
     // Construct text template cleanly
     const text = `*New Admission Enquiry* \n\n` +
-                 `👤 *Name:* ${formData.name}\n` +
-                 `📧 *Email:* ${formData.email}\n` +
-                 `📞 *Phone:* ${formData.phone}\n` +
-                 `📚 *Course:* ${formData.course || 'Not Specified'}\n` +
-                 `💬 *Message:* ${formData.message}`;
+      `👤 *Name:* ${formData.name}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📞 *Phone:* ${formData.phone}\n` +
+      `📚 *Course:* ${formData.course || 'Not Specified'}\n` +
+      `💬 *Message:* ${formData.message}`;
 
     // Encode URL parameters
     const encodedText = encodeURIComponent(text);
@@ -479,7 +479,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Placement Timeline */}
       <div className="placement-flow-wrapper my-5 px-3">
         <div className="text-center mb-5" data-aos="fade-down">
@@ -742,14 +742,14 @@ const Home = () => {
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">YOUR NAME</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="form-control-custom" 
-                          placeholder="John Doe" 
-                          required 
+                          className="form-control-custom"
+                          placeholder="John Doe"
+                          required
                         />
                       </div>
                     </div>
@@ -757,14 +757,14 @@ const Home = () => {
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">EMAIL ADDRESS</label>
-                        <input 
-                          type="email" 
+                        <input
+                          type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="form-control-custom" 
-                          placeholder="example@mail.com" 
-                          required 
+                          className="form-control-custom"
+                          placeholder="example@mail.com"
+                          required
                         />
                       </div>
                     </div>
@@ -772,14 +772,14 @@ const Home = () => {
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">PHONE NUMBER</label>
-                        <input 
-                          type="tel" 
+                        <input
+                          type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="form-control-custom" 
-                          placeholder="+91 8860700101" 
-                          required 
+                          className="form-control-custom"
+                          placeholder="+91 8860700101"
+                          required
                         />
                       </div>
                     </div>
@@ -787,13 +787,13 @@ const Home = () => {
                     <div className="col-12 col-sm-6">
                       <div className="form-group-custom">
                         <label className="form-label-custom">SUBJECT / COURSE INTEREST</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           name="course"
                           value={formData.course}
                           onChange={handleInputChange}
-                          className="form-custom-select form-control-custom" 
-                          placeholder="Fire & Safety Diploma" 
+                          className="form-custom-select form-control-custom"
+                          placeholder="Fire & Safety Diploma"
                         />
                       </div>
                     </div>
@@ -801,13 +801,13 @@ const Home = () => {
                     <div className="col-12">
                       <div className="form-group-custom">
                         <label className="form-label-custom">YOUR MESSAGE</label>
-                        <textarea 
+                        <textarea
                           name="message"
                           value={formData.message}
                           onChange={handleInputChange}
-                          className="form-control-custom text-area-custom" 
-                          rows="4" 
-                          placeholder="Write your query here..." 
+                          className="form-control-custom text-area-custom"
+                          rows="4"
+                          placeholder="Write your query here..."
                           required
                         ></textarea>
                       </div>
@@ -849,7 +849,13 @@ const Home = () => {
                       </div>
                       <div>
                         <span className="info-label">EMAIL SUPPORT</span>
-                        <h6 className="info-value">jifsadelhi101@gmail.com</h6>
+                        <a
+                          href="mailto:jifsadehli101@gmail.com"
+                          className="text-decoration-none fw-bold"
+                          style={{ color: 'inherit' }}
+                        >
+                          jifsadelhi101@gmail.com
+                        </a>
                       </div>
                     </div>
                   </div>

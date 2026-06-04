@@ -174,7 +174,7 @@ const Header = () => {
         </a>
 
         {/* Email Button */}
-        <a href="mainto:jifsadelhi101@gmail.com" className="floating-btn message-float" aria-label="Send Email">
+        <a href="mailto:jifsadelhi101@gmail.com" className="floating-btn message-float" aria-label="Send Email">
           <i className="bi bi-envelope"></i>
         </a>
       </div>
