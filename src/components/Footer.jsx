@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="col-lg-3 col-6 mb-4">
             <h5 className="fw-bold mb-3">Contact</h5>
             <p className="text-white-50 small mb-1"><i className="bi bi-telephone me-2"></i> +91-8860700101</p>
-            <p className="text-white-50 small"><i className="bi bi-envelope me-2"></i> info@jifsa.com</p>
+            <p className="text-white-50 small"><i className="bi bi-envelope me-2"></i> jifsadelhi101@gmail.com</p>
           </div>
           <div className="col-lg-3 mb-4">
             <h5 className="fw-bold mb-3">Follow Us</h5>
