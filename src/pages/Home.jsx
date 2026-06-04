@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Testimonial from "./Testimonial";
 import "./Home.css";
+import Courses from "./Courses";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -206,7 +207,11 @@ const Home = () => {
       </div>
 
       {/* Stats Section */}
-      <div id="courses" className="container-fluid my-5 px-3">
+      <div id="courses" className="container-fluid my-5 px-0">
+
+        {/* Course Content New */}
+        <Courses />
+
         <div className="text-center mb-5" data-aos="fade-down">
           <h6 className="text-uppercase fw-bold text-danger tracking-widest mb-1" style={{ fontSize: '12px', letterSpacing: '2px' }}>OUR TRACK RECORD</h6>
           <h2 className="fw-bold text-dark display-6" style={{ fontWeight: '850', letterSpacing: '-0.5px' }}>30 Years of <span style={{ color: '#dc3545' }}>Legacy</span> in Numbers</h2>

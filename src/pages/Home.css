@@ -617,4 +617,8 @@
 .map-iframe-element {
   border-radius: 0px;
 } 
-
+.redHover:hover {
+    background-color: #bd2130 !important;
+    color: #ffffff !important;
+    border-color: #bd2130 !important;
+}
